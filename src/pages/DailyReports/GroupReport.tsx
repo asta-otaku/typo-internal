@@ -23,7 +23,7 @@ function GroupReports() {
       <DashboardNav title="Daily Reports" />
       <DailyReportsLayout>
         <div className="overflow-x-auto no-scrollbar">
-          <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
+          <table className="min-w-full text-left text-xs rounded-t-lg mt-6  bg-offwhite border-collapse">
             <thead className="text-black/50 font-semibold">
               <tr className="capitalize">
                 {Object.keys(tableData[0]).map((key) => (

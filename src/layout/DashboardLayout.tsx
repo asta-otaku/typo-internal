@@ -23,16 +23,16 @@ function DashboardLayout({ children }: any) {
   const toggleNav = () => setNav(!nav);
 
   return (
-    <>
+    <div className="bg-offwhite">
       {/* General Modal */}
       {currentModal && <ModalLayout />}
       <div
-        className={`md:flex grow bg-offwhite gap-6 p-2 md:p-6 min-h-screen ${
+        className={`md:flex grow gap-6 p-2 min-h-screen md:p-6 max-w-[1800px] mx-auto ${
           currentModal && "blur-sm"
         }`}
       >
         {/* Nav section */}
-        <nav className="w-full md:w-[280px] md:relative z-[100] flex shrink-0 justify-between">
+        <nav className="w-full md:w-[280px] md:fixed z-[100] flex shrink-0 justify-between">
           <div className="w-full flex flex-col">
             <Link to="/">
               <img src={logo} alt="logo" className="w-[12rem] md:w-full py-2" />
@@ -40,7 +40,7 @@ function DashboardLayout({ children }: any) {
             <ul
               className={`${
                 nav ? "block" : "hidden"
-              } md:block grow font-medium md:my-9 w-full`}
+              } md:block font-medium my-0 lg:my-9 w-full`}
             >
               <li>
                 <Link
@@ -174,11 +174,11 @@ function DashboardLayout({ children }: any) {
           </span>
         </nav>
 
-        <main className="bg-white md:max-w-[calc(100vw-332px)] h-screen md:h-full border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
+        <main className="bg-white md:ml-[332px] md:max-w-[calc(100vw-332px)] h-screen md:h-full border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
           {children}
         </main>
       </div>
-    </>
+    </div>
   );
 }
 
