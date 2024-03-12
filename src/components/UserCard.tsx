@@ -121,7 +121,7 @@ export default function Card({
 function Modal({ name, company, type, tags, color, activity, Icons }: any) {
   const setModal = useStore((state: any) => state.setModal);
   return (
-    <div className="flex flex-col shadow-sm w-72 sm:w-96 text-black/50 text-xs font-light bg-[#FFFFFF] relative rounded-2xl p-5">
+    <div className="flex flex-col shadow-sm max-w-sm w-full text-black/50 text-xs font-light bg-[#FFFFFF] relative rounded-2xl p-5">
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />
       </span>
