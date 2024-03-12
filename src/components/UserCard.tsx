@@ -53,9 +53,12 @@ export default function Card({
         {tags.map((tag, i) => (
           <div
             key={i}
+            style={{
+              color: i === tags.length - 1 ? color : "black",
+            }}
             className={`text-[13px] py-2 w-[120px] text-center ${
               i === tags.length - 1 &&
-              `text-[${color}] font-medium border-solid border-[${color}] border-[0.5px] rounded-2xl bg-[${color}]/10`
+              `text-[${color}] font-medium border-solid border-[0.5px] rounded-2xl`
             }`}
           >
             {tag}
@@ -75,14 +78,14 @@ export default function Card({
               <div className="flex items-center gap-1">
                 <UserStatusIcon color={color} />
                 <div>
-                  <h5 className={`text-[${color}] text-xs font-medium`}>
+                  <h5 style={{ color }} className="text-xs font-medium">
                     {"Activity"}
                   </h5>
                   <p className="text-xs font-medium">{act}</p>
                 </div>
               </div>
               <div>
-                <h5 className={`text-[${color}] text-xs font-medium`}>
+                <h5 style={{ color }} className="text-xs font-medium">
                   {"Time"}
                 </h5>
                 <p className="text-black text-xs font-medium">
@@ -153,9 +156,12 @@ function Modal({ name, company, type, tags, color, activity, Icons }: any) {
         {tags.map((tag: string, i: number) => (
           <div
             key={i}
+            style={{
+              color: i === tags.length - 1 ? color : "black",
+            }}
             className={`text-[13px] py-2 w-[120px] text-center ${
               i === tags.length - 1 &&
-              `text-[${color}] font-medium border-solid border-[${color}] border-[0.5px] rounded-2xl bg-[${color}]/10`
+              `text-[${color}] font-medium border-solid border-[0.5px] rounded-2xl`
             }`}
           >
             {tag}
@@ -174,14 +180,14 @@ function Modal({ name, company, type, tags, color, activity, Icons }: any) {
               <div className="flex items-center gap-1">
                 <UserStatusIcon color={color} />
                 <div>
-                  <h5 className={`text-[${color}] text-xs font-medium`}>
+                  <h5 style={{ color }} className="text-xs font-medium">
                     {"Activity"}
                   </h5>
                   <p className="text-xs font-medium">{act}</p>
                 </div>
               </div>
               <div>
-                <h5 className={`text-[${color}] text-xs font-medium`}>
+                <h5 style={{ color }} className="text-xs font-medium">
                   {"Time"}
                 </h5>
                 <p className="text-black text-xs font-medium">
