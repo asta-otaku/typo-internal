@@ -98,7 +98,7 @@ function DashboardLayout({ children }: any) {
                 <Link
                   to="/user-ranking"
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
-                    location.pathname === "/user-ranking"
+                    location.pathname.startsWith("/user-ranking")
                       ? "bg-primary text-white"
                       : "text-black/50"
                   }`}
@@ -174,7 +174,7 @@ function DashboardLayout({ children }: any) {
           </span>
         </nav>
 
-        <main className="bg-white md:ml-[332px] md:max-w-[calc(100vw-332px)] h-screen md:h-full border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
+        <main className="bg-white md:ml-[332px] md:max-w-[calc(100vw-332px)] min-h-screen md:min-[100vh-48px] border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
           {children}
         </main>
       </div>

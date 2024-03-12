@@ -127,20 +127,14 @@ function Modal({ name, company, type, tags, color, activity, Icons }: any) {
       </span>
       <h6 className="text-xs text-black font-medium">Activity Log</h6>
       <div className="mt-4 mb-6 w-full py-3 flex gap-4">
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[110px]">
-          <option defaultValue={"Weekly Report"} value={"weekly-report"}>
-            User Type
-          </option>
+        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+          <option value={"user"}>User Type</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[110px]">
-          <option defaultValue={"6jan-12jan"} value={"weekly-report"}>
-            All Activity
-          </option>
+        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+          <option value={"all"}>All Activity</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[110px]">
-          <option defaultValue={"6jan-12jan"} value={"weekly-report"}>
-            24 Hours
-          </option>
+        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+          <option value={"24-hours"}>24 Hours</option>
         </select>
       </div>
       <div className="w-full flex justify-between mt-4">

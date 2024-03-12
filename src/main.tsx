@@ -7,7 +7,9 @@ import App from "./pages/App.tsx";
 import DailyReports from "./pages/DailyReports/index.tsx";
 import GroupReports from "./pages/DailyReports/GroupReport.tsx";
 import Retention from "./pages/Retention.tsx";
+import UserRanking from "./pages/UserRanking/index.tsx";
 import Waitlist from "./pages/Waitlist.tsx";
+import GroupRanking from "./pages/UserRanking/GroupRanking.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -17,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/active-users" element={<ActiveUsers />} />
         <Route path="/daily-reports" element={<DailyReports />} />
         <Route path="/daily-reports/groups" element={<GroupReports />} />
+        <Route path="/user-ranking/groups" element={<GroupRanking />} />
         <Route path="/retention" element={<Retention />} />
+        <Route path="/user-ranking" element={<UserRanking />} />
         <Route path="waitlist" element={<Waitlist />} />
       </Routes>
     </BrowserRouter>
