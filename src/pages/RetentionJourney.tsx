@@ -17,7 +17,7 @@ const data = [
     name: "Austin Wu",
     id: "002",
     retentionStatus: "-",
-    actionCompleted: 4,
+    actionCompleted: 8,
     daysSinceFirstActivity: "2 days",
     pastTimeOnboarding: "1 day",
     dayToCompleteOnboarding: "pending",
@@ -86,7 +86,10 @@ function RetentionJourney() {
                         <td className="px-6 py-4 whitespace-nowrap flex items-center gap-1">
                           <div>{item.actionCompleted}/10</div>
                           <div className="flex items-center bg-offwhite rounded-xl w-12 h-2">
-                            <span className="w-2/5 rounded-xl bg-primary h-2" />
+                            <span
+                              style={{ width: `${item.actionCompleted * 10}%` }}
+                              className="rounded-xl bg-primary h-2"
+                            />
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
