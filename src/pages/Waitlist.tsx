@@ -11,7 +11,7 @@ function Waitlist() {
       />
       <div className="overflow-x-auto mt-6 no-scrollbar">
         <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
-          <thead className="text-black/50 font-medium">
+          <thead className="text-fadedBlack font-medium">
             <tr className="capitalize">
               {Object.keys(tableData[0]).map((key) => (
                 <th

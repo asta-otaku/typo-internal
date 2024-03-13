@@ -21,7 +21,7 @@ function AnalyticsLayout({
       />
       <div className="mt-6 px-2 overflow-x-auto flex flex-col lg:flex-row items-center md:items-start justify-between gap-8 w-full">
         <ul className="max-w-[200px] w-full flex flex-col gap-2 py-5 px-3 bg-offwhite rounded-xl">
-          <li className="text-sm text-black/50">SELECT MENU</li>
+          <li className="text-sm text-fadedBlack">SELECT MENU</li>
           <ListItem
             step={1}
             setCurrentStep={setCurrentStep}
@@ -71,7 +71,7 @@ function ListItem({
         className={`p-2 w-full cursor-pointer flex items-center justify-between text-sm no-underline hover:bg-white hover:text-primary ${
           step == currentStep
             ? "bg-white rounded-md text-primary"
-            : "text-black/50"
+            : "text-fadedBlack"
         }`}
       >
         <span>{name}</span>

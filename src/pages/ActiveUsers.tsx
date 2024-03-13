@@ -11,13 +11,13 @@ function ActiveUsers() {
         description="Select the category to view the leaderboards"
       />
       <div className="my-6 w-full py-3 flex gap-4">
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"user"}>User Type</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"all"}>All Activity</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"24-hours"}>24 Hours</option>
         </select>
       </div>

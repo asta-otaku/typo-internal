@@ -32,7 +32,7 @@ function DashboardLayout({ children }: any) {
         }`}
       >
         {/* Nav section */}
-        <nav className="w-full md:w-[280px] md:fixed z-[100] flex shrink-0 justify-between">
+        <nav className="w-full md:w-[200px] lg:w-[280px] md:fixed z-[100] flex shrink-0 justify-between">
           <div className="w-full flex flex-col">
             <Link to="/">
               <img src={logo} alt="logo" className="w-[12rem] md:w-full py-2" />
@@ -48,7 +48,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <Squares2X2Icon width={22} />
@@ -59,9 +59,9 @@ function DashboardLayout({ children }: any) {
                 <Link
                   to="/retention"
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
-                    location.pathname.startsWith("/retention")
+                    location.pathname === "/retention"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <ChartIcon width={22} />
@@ -74,7 +74,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname.startsWith("/daily-reports")
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <DocumentTextIcon width={22} />
@@ -87,7 +87,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/analytics"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <ChartIcon width={22} />
@@ -100,7 +100,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname.startsWith("/user-ranking")
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <DiscountIcon width={22} />
@@ -113,7 +113,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/active-users"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <Cog6ToothIcon width={22} />
@@ -126,7 +126,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/waitlist"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <WaitListIcon width={22} />
@@ -139,7 +139,7 @@ function DashboardLayout({ children }: any) {
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/retention-journey"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <RetentionJourneyIcon width={22} />
@@ -152,7 +152,7 @@ function DashboardLayout({ children }: any) {
                   className={`md:hidden flex gap-3 items-center w-full py-3 pl-2 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/settings"
                       ? "bg-primary text-white"
-                      : "text-black/50"
+                      : "text-fadedBlack"
                   }`}
                 >
                   <Cog6ToothIcon width={22} />
@@ -160,7 +160,7 @@ function DashboardLayout({ children }: any) {
                 </Link>
               </li>
             </ul>
-            <div className="hidden md:flex items-center gap-3 text-black/50 font-medium cursor-pointer hover:bg-blue-400 rounded-md w-full pl-2 py-3">
+            <div className="hidden md:flex items-center gap-3 text-fadedBlack font-medium cursor-pointer hover:bg-blue-400 rounded-md w-full pl-2 py-3">
               <Cog6ToothIcon width={22} />
               <span>Settings</span>
             </div>
@@ -174,7 +174,7 @@ function DashboardLayout({ children }: any) {
           </span>
         </nav>
 
-        <main className="bg-white md:ml-[312px] md:max-w-[calc(100vw-312px)] min-h-screen md:min-[100vh-48px] border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
+        <main className="bg-white md:ml-[232px] lg:ml-[312px] md:max-w-[calc(100vw-312px)] min-h-screen md:min-h-[100vh-48px] border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
           {children}
         </main>
       </div>

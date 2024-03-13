@@ -77,6 +77,34 @@ export function ChartIcon(props: SVGAttributes<SVGElement>) {
   );
 }
 
+export function CheckMarkIcon(props: SVGAttributes<SVGElement>) {
+  return (
+    <svg
+      width="17"
+      height="16"
+      viewBox="0 0 17 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.1668 8.00004C15.1668 4.31814 12.182 1.33337 8.50016 1.33337C4.81826 1.33337 1.8335 4.31814 1.8335 8.00004C1.8335 11.6819 4.81826 14.6667 8.50016 14.6667C12.182 14.6667 15.1668 11.6819 15.1668 8.00004Z"
+        stroke={props.color}
+        strokeOpacity="0.5"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M5.8335 8.50004C5.8335 8.50004 6.90016 9.10837 7.4335 10C7.4335 10 9.0335 6.50004 11.1668 5.33337"
+        stroke={props.color}
+        strokeOpacity="0.5"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function CloseIcon(props: SVGAttributes<SVGElement>) {
   return (
     <svg

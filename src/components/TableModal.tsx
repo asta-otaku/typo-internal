@@ -10,7 +10,7 @@ function TableModal({ data }: { data: any }) {
   const setModal = useStore((state: any) => state.setModal);
 
   return (
-    <div className="flex flex-col items-center shadow-sm max-w-sm w-full text-black/50 text-xs font-light bg-[#FFFFFF] relative rounded p-5">
+    <div className="flex flex-col items-center shadow-sm max-w-sm w-full text-fadedBlack text-xs font-light bg-[#FFFFFF] relative rounded p-5">
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />
       </span>

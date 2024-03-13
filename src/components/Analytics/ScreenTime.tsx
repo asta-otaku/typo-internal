@@ -7,7 +7,7 @@ function ScreenTime() {
       <h4 className="text-lg md:text-xl text-black font-semibold">
         Screen-Time
       </h4>
-      <p className="text-black/50 text-xs mt-1">
+      <p className="text-fadedBlack text-xs mt-1">
         Analysis of the usage of the application
       </p>
       <div className="flex flex-wrap justify-center md:justify-start gap-4 my-5">
@@ -38,7 +38,7 @@ function Card({
           <h6 className="text-base font-light">Screen-Time</h6>
           <h4 className="text-primary font-semibold mt-1">{category}</h4>
         </div>
-        <select className="outline-none text-black/50 text-xs font-medium bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px]">
+        <select className="outline-none text-fadedBlack text-xs font-medium bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px]">
           <option>This week</option>
         </select>
       </div>
@@ -57,7 +57,7 @@ function Card({
             </p>
           </div>
         </div>
-        <p className="text-xs text-black/50">Compared to last week</p>
+        <p className="text-xs text-fadedBlack">Compared to last week</p>
       </div>
     </div>
   );

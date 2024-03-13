@@ -12,7 +12,7 @@ function GroupReports() {
     else if (value === "Logged In") return "text-[#0019FF]";
     else if (value === "Created Bubble") return "text-[#178A4C]";
     else if (value === "Created Comment") return "text-[#6F00B3]";
-    else if (value === "5636R36T36") return "text-black/50";
+    else if (value === "5636R36T36") return "text-fadedBlack";
     else return "text-black";
   };
 
@@ -20,7 +20,7 @@ function GroupReports() {
     <DailyReportsLayout>
       <div className="overflow-x-auto no-scrollbar">
         <table className="min-w-full text-left text-xs rounded-t-lg mt-6  bg-offwhite border-collapse">
-          <thead className="text-black/50 font-semibold">
+          <thead className="text-fadedBlack font-semibold">
             <tr className="capitalize">
               {Object.keys(tableData[0]).map((key) => (
                 <th

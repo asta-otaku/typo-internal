@@ -12,7 +12,7 @@ function CrashReport() {
       <h4 className="text-lg md:text-xl text-black font-semibold">
         Crash Report
       </h4>
-      <p className="text-black/50 text-xs mt-1">
+      <p className="text-fadedBlack text-xs mt-1">
         Analysis of the usage of the application
       </p>
 
@@ -42,7 +42,7 @@ function CrashReport() {
           </div>
         ))}
       </nav>
-      <select className="outline-none text-black/50 text-xs font-medium my-2 bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px] self-end">
+      <select className="outline-none text-fadedBlack text-xs font-medium my-2 bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px] self-end">
         <option>This week</option>
       </select>
 
@@ -128,7 +128,7 @@ function CrashReport() {
                 </div>
                 <div className="mt-5   overflow-x-auto">
                   <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
-                    <thead className="text-black/50 font-semibold">
+                    <thead className="text-fadedBlack font-semibold">
                       <tr className="capitalize">
                         <th scope="col" className="px-6 py-4 whitespace-nowrap">
                           username
@@ -198,7 +198,7 @@ function GeneralCard({
   return (
     <div className="p-6 rounded-3xl bg-offwhite flex items-center gap-8 max-w-xs w-full">
       <div>
-        <h6 className="text-black/50 text-sm font-light">Crash</h6>
+        <h6 className="text-fadedBlack text-sm font-light">Crash</h6>
         <h5 className="text-primary font-semibold text-sm">{title}</h5>
       </div>
       <span className="text-black font-semibold text-2xl">
@@ -233,7 +233,7 @@ function ReasonCard({
   return (
     <div className="rounded-3xl bg-offwhite p-8 flex flex-col justify-between h-[250px] max-w-[320px] w-full">
       <div>
-        <h6 className="text-black/50 text-sm font-light">Crash</h6>
+        <h6 className="text-fadedBlack text-sm font-light">Crash</h6>
         <h5 style={{ color: color }} className="font-semibold text-sm">
           {reason}
         </h5>
@@ -252,7 +252,7 @@ function ReasonCard({
             </p>
           </div>
         </div>
-        <p className="text-xs text-black/50 font-light">Affected Users</p>
+        <p className="text-xs text-fadedBlack font-light">Affected Users</p>
       </div>
       <div>
         <div className="flex items-baseline gap-2">
@@ -277,7 +277,7 @@ function ReasonCard({
             </p>
           </div>
         </div>
-        <p className="text-xs text-black/50 font-light">Frequency</p>
+        <p className="text-xs text-fadedBlack font-light">Frequency</p>
       </div>
     </div>
   );

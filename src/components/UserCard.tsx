@@ -22,7 +22,7 @@ export default function Card({
 }) {
   const setModal = useStore((state: any) => state.setModal);
   return (
-    <article className="bg-offwhite rounded-3xl py-6 px-4 flex flex-col max-w-sm text-xs w-full text-black/50 min-h-[300px]">
+    <article className="bg-offwhite rounded-3xl py-6 px-4 flex flex-col max-w-sm text-xs w-full text-fadedBlack min-h-[300px]">
       <div className="w-full flex justify-between">
         <h6 className="text-xs text-black font-medium">Activity Log</h6>
         <div
@@ -124,19 +124,19 @@ export default function Card({
 function Modal({ name, company, type, tags, color, activity, Icons }: any) {
   const setModal = useStore((state: any) => state.setModal);
   return (
-    <div className="flex flex-col shadow-sm max-w-sm w-full text-black/50 text-xs font-light bg-[#FFFFFF] relative rounded-2xl p-5">
+    <div className="flex flex-col shadow-sm max-w-sm w-full text-fadedBlack text-xs font-light bg-[#FFFFFF] relative rounded-2xl p-5">
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />
       </span>
       <h6 className="text-xs text-black font-medium">Activity Log</h6>
       <div className="mt-4 mb-6 w-full py-3 flex gap-4">
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"user"}>User Type</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"all"}>All Activity</option>
         </select>
-        <select className="outline-none text-black/50 text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
+        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
           <option value={"24-hours"}>24 Hours</option>
         </select>
       </div>
