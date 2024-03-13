@@ -2,6 +2,7 @@ import DashboardNav from "./DashboardNav";
 import { CheckMarkIcon } from "../assets/icons";
 
 function UserProductProgress({ data }: { data: any }) {
+  const value = data.actionCompleted > 10 ? 10 : data.actionCompleted;
   return (
     <div>
       <DashboardNav
@@ -43,7 +44,7 @@ function UserProductProgress({ data }: { data: any }) {
         </h3>
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex min-w-full gap-2">
-            {Array(data.actionCompleted)
+            {Array(value)
               .fill(0)
               .map((_, index) => (
                 <div key={index} className="flex flex-col items-center gap-2">
@@ -59,7 +60,7 @@ function UserProductProgress({ data }: { data: any }) {
                   </div>
                 </div>
               ))}
-            {Array(10 - data.actionCompleted)
+            {Array(10 - value)
               .fill(0)
               .map((_, index) => (
                 <div key={index} className="flex flex-col items-center gap-2">
