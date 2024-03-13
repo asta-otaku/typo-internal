@@ -174,7 +174,7 @@ function DashboardLayout({ children }: any) {
           </span>
         </nav>
 
-        <main className="bg-white md:ml-[232px] lg:ml-[312px] md:max-w-[calc(100vw-312px)] min-h-screen md:min-h-[100vh-48px] border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow">
+        <main className="bg-white md:ml-[232px] lg:ml-[312px] md:max-w-[calc(100vw-312px)] min-h-screen md:min-h-[100vh-48px] border shadow-sm shadow-gray-300 p-4 md:p-6 rounded-xl grow overflow-x-auto">
           {children}
         </main>
       </div>
