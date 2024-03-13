@@ -37,7 +37,7 @@ function RetentionJourney() {
                 title="Retention Journey"
                 description="Select the category to view leaderboards."
               />
-              <div className="my-5 overflow-x-auto">
+              <div className="my-5 overflow-x-auto no-scrollbar">
                 <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
                   <thead className="text-fadedBlack font-semibold">
                     <tr className="capitalize">
