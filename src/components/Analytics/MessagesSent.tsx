@@ -1,6 +1,6 @@
 // import bigareachart from "../../assets/Chart 10.svg";
 // import smallareachart from "../../assets/Chart 13.svg";
-import greenarrow from "../../assets/Frame 22.svg";
+import greenarrow from "../../assets/greenarrow.svg";
 import AreaChart from "../../utils/AreaChart";
 
 function MessagesSent() {

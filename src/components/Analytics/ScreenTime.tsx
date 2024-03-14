@@ -1,5 +1,5 @@
-import greenarrow from "../../assets/Frame 22.svg";
-import redarrow from "../../assets/Frame 32.svg";
+import greenarrow from "../../assets/greenarrow.svg";
+import redarrow from "../../assets/redarrow.svg";
 
 function ScreenTime() {
   return (

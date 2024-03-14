@@ -1,8 +1,8 @@
-import users from "../assets/3 User.svg";
+import users from "../assets/3User.svg";
 import chat from "../assets/Chat.svg";
 import bubble from "../assets/Ticket.svg";
 import mail from "../assets/Message.svg";
-import profile from "../assets/Frame 215.png";
+import profile from "../assets/Frame215.png";
 import close from "../assets/Close-Square.svg";
 import useStore from "../store";
 
