@@ -2,7 +2,7 @@
 // import smallareachart from "../../assets/Chart 13.svg";
 import greenarrow from "../../assets/greenarrow.svg";
 import { ChevronDownIcon } from "../../assets/icons";
-import AreaChart from "../../utils/AreaChart";
+import AreaChart from "../../charts/AreaChart";
 
 function MessagesSent() {
   return (

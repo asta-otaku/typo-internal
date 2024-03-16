@@ -1,12 +1,13 @@
+import { getCurrentWeekDates } from "../../helpers/getWeekdays";
+
 function TableHeader({
-  dateRange,
   tableType,
   tableData,
 }: {
-  dateRange: string[];
   tableType: string;
   tableData: any;
 }) {
+  const dateRange = getCurrentWeekDates();
   return (
     <thead className="text-fadedBlack font-semibold">
       {tableType !== "summary" ? (

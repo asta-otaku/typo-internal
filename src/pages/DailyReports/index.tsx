@@ -12,8 +12,6 @@ function DailyReports() {
   const [tableType, setTableType] = useState("");
   const [tableData, setTableData] = useState<any>(weeklyTableData);
 
-  const dateRange = ["3/10", "3/11", "3/12", "3/13", "3/14", "3/15", "3/16"];
-
   useEffect(() => {
     if (tableType === "summary") {
       setTableData(summaryTableData);
@@ -46,11 +44,7 @@ function DailyReports() {
       </div>
       <div className="overflow-x-auto no-scrollbar">
         <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
-          <TableHeader
-            dateRange={dateRange}
-            tableData={tableData}
-            tableType={tableType}
-          />
+          <TableHeader tableData={tableData} tableType={tableType} />
           <TableBody tableData={tableData} />
         </table>
       </div>

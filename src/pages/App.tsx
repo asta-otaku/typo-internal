@@ -3,10 +3,10 @@ import chat from "../assets/Chatwhite.svg";
 import send from "../assets/Send.svg";
 import greenarrow from "../assets/greenarrow.svg";
 import redarrow from "../assets/redarrow.svg";
-import AreaChart from "../utils/AreaChart";
-import BarChart from "../utils/BarChart";
-import DoughnutChart from "../utils/DoughnutChart";
-import LineChart from "../utils/LineChart";
+import AreaChart from "../charts/AreaChart";
+import BarChart from "../charts/BarChart";
+import DoughnutChart from "../charts/DoughnutChart";
+import LineChart from "../charts/LineChart";
 import { ChevronDownIcon } from "../assets/icons";
 
 const cartData = [
