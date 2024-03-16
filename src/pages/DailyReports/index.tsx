@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import DailyReportsLayout from "../../layout/DailyReportsLayout";
-import TableModal from "../../components/TableModal";
 import {
   DAILYREPORTDATA as weeklyTableData,
   DAILYREPORTSUMMARYDATA as summaryTableData,
 } from "../../store/data";
-import useStore from "../../store";
-import { ChevronDownIcon, ProfileIcon } from "../../assets/icons";
+import { ChevronDownIcon } from "../../assets/icons";
+import TableBody from "../../components/DailyReport/TableBody";
+import TableHeader from "../../components/DailyReport/TableHeader";
 
 function DailyReports() {
   const [tableType, setTableType] = useState("");
   const [tableData, setTableData] = useState<any>(weeklyTableData);
-  const setModal = useStore((state: any) => state.setModal);
+
+  const dateRange = ["3/10", "3/11", "3/12", "3/13", "3/14", "3/15", "3/16"];
 
   useEffect(() => {
     if (tableType === "summary") {
@@ -20,18 +21,6 @@ function DailyReports() {
       setTableData(weeklyTableData);
     }
   }, [tableType]);
-
-  const getColor = (value: string) => {
-    if (tableType === "summary") return "text-fadedBlack";
-    else {
-      if (value === "No Activity") return "text-[#FF6B00]";
-      else if (value === "Logged In") return "text-[#0019FF]";
-      else if (value === "Created Bubble") return "text-[#178A4C]";
-      else if (value === "Created Comment") return "text-[#6F00B3]";
-      else if (value === "5636R36T36") return "text-fadedBlack";
-      else return "text-black";
-    }
-  };
 
   return (
     <DailyReportsLayout>
@@ -55,55 +44,14 @@ function DailyReports() {
           <ChevronDownIcon width={12} />
         </div>
       </div>
-
       <div className="overflow-x-auto no-scrollbar">
         <table className="min-w-full text-left text-xs rounded-t-lg  bg-offwhite border-collapse">
-          <thead className="text-fadedBlack font-semibold">
-            <tr className="capitalize">
-              {Object.keys(tableData[0]).map((key) => (
-                <th
-                  key={key}
-                  scope="col"
-                  className="px-6 py-4 whitespace-nowrap"
-                >
-                  {key.replace("_", " ")}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="bg-white font-medium">
-            {tableData.map((data: { [key: string]: string }, index: number) => (
-              <tr
-                key={index}
-                className="cursor-pointer hover:bg-primary/10"
-                onClick={() => setModal(<TableModal data={data} />)}
-              >
-                {Object.entries(data).map(([key, value]) => (
-                  <td
-                    key={key}
-                    className={`px-6 py-4 whitespace-nowrap ${getColor(value)}`}
-                  >
-                    {key === "username" ? (
-                      <div className="flex items-center gap-3 text-bold text-black">
-                        <ProfileIcon width={12} />
-                        <span>{value}</span>
-                      </div>
-                    ) : (
-                      <span
-                        className={`${
-                          key !== "userId"
-                            ? "bg-offwhite py-1 px-2 rounded-3xl"
-                            : ""
-                        }`}
-                      >
-                        {value}
-                      </span>
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
+          <TableHeader
+            dateRange={dateRange}
+            tableData={tableData}
+            tableType={tableType}
+          />
+          <TableBody tableData={tableData} />
         </table>
       </div>
     </DailyReportsLayout>

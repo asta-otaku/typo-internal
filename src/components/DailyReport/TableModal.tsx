@@ -1,16 +1,19 @@
-import users from "../assets/3User.svg";
-import chat from "../assets/Chat.svg";
-import bubble from "../assets/Ticket.svg";
-import mail from "../assets/Message.svg";
-import profile from "../assets/Frame215.png";
-import close from "../assets/Close-Square.svg";
-import useStore from "../store";
+import users from "../../assets/3User.svg";
+import chat from "../../assets/Chat.svg";
+import bubble from "../../assets/Ticket.svg";
+import mail from "../../assets/Message.svg";
+import profile from "../../assets/Frame215.png";
+import close from "../../assets/Close-Square.svg";
+import useStore from "../../store";
 
 function TableModal({ data }: { data: any }) {
   const setModal = useStore((state: any) => state.setModal);
 
   return (
-    <div className="flex flex-col items-center shadow-sm max-w-sm w-full text-fadedBlack text-xs font-light bg-[#FFFFFF] relative rounded p-5">
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="z-[200] flex flex-col items-center shadow-sm max-w-sm w-full text-fadedBlack text-xs font-light bg-[#FFFFFF] relative rounded p-5"
+    >
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />
       </span>

@@ -47,12 +47,12 @@ const getGradient = (chart: any) => {
     return null;
   }
   const gradient = ctx.createLinearGradient(
-    chartArea.left,
+    0,
     chartArea.top,
-    chartArea.right,
+    0,
     chartArea.bottom
   );
-  gradient.addColorStop(0, "rgba(141, 121, 246, 0.5)");
+  gradient.addColorStop(0.1, "rgba(141, 121, 246, 0.4)");
   gradient.addColorStop(1, "rgba(141, 121, 246, 0)");
   return gradient;
 };
@@ -64,6 +64,7 @@ export const data = {
       label: "My First dataset",
       data: [65, 59, 80, 81],
       fill: true,
+      // backgroundColor: "rgba(141, 121, 246, 0.09)",
       backgroundColor: (context: any) => {
         const chart = context.chart;
         const { chartArea } = chart;

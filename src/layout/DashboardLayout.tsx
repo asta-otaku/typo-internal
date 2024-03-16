@@ -27,7 +27,7 @@ function DashboardLayout({ children }: any) {
       {/* General Modal */}
       {currentModal && <ModalLayout />}
       <div
-        className={`md:flex grow gap-6 p-2 min-h-screen md:p-6 max-w-[1800px] mx-auto ${
+        className={`md:flex grow gap-6 p-2 h-screen md:p-6 max-w-[1800px] relative mx-auto ${
           currentModal && "blur-sm"
         }`}
       >

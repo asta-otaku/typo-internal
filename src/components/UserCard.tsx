@@ -162,7 +162,10 @@ function Modal({
   const [selectedTag, setSelectedTag] = useState(tags.length - 1);
 
   return (
-    <div className="flex flex-col shadow-sm max-w-md w-full text-fadedBlack text-xs font-light bg-offwhite relative rounded-3xl p-5">
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="flex flex-col shadow-sm max-w-md w-full text-fadedBlack text-xs font-light bg-offwhite relative rounded-3xl p-5"
+    >
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />
       </span>

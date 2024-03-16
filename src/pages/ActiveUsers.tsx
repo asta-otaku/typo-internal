@@ -3,6 +3,59 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Card from "../components//UserCard";
 import { ChevronDownIcon } from "../assets/icons";
 
+const cardData = [
+  {
+    name: "Austin Wu",
+    company: "A&H",
+    type: "New User",
+    tags: ["Logged In", "Bubble Created"],
+    color: "#FF6B00",
+    activity: [
+      ["Logged In", "Comments", "Logged In"],
+      ["Bubble Created", "Logged In", "Comments"],
+    ],
+    deviceType: [
+      ["computer", "phone", "computer"],
+      ["phone", "computer", "phone"],
+    ],
+  },
+  {
+    name: "Holly Li",
+    company: "A&H",
+    type: "Comebacker",
+    tags: ["Logged In"],
+    color: "#0DA200",
+    activity: [["Logged In", "Logged In", "Logged In"]],
+    deviceType: [["computer", "phone", "phone"]],
+  },
+  {
+    name: "Campbell Baron",
+    company: "Mantra",
+    type: "Regular",
+    tags: ["Logged In", "Bubble Created", "Comments"],
+    color: "#9B51E0",
+    activity: [
+      ["Logged In", "Logged In", "Logged In"],
+      ["Bubble Created", "Logged In", "Logged In"],
+      ["Comments", "Logged In", "Logged In"],
+    ],
+    deviceType: [
+      ["computer", "phone", "phone"],
+      ["computer", "phone", "phone"],
+      ["computer", "phone", "phone"],
+    ],
+  },
+  {
+    name: "Ethan Daly",
+    company: "Earshot",
+    type: "Dormant",
+    tags: ["No Activity"],
+    color: "#EB5757",
+    activity: [[]],
+    deviceType: [[]],
+  },
+];
+
 function ActiveUsers() {
   return (
     <DashboardLayout>
@@ -32,56 +85,9 @@ function ActiveUsers() {
       </div>
 
       <div className="flex  items-stretch flex-wrap gap-4 md:gap-y-8">
-        <Card
-          name="Austin Wu"
-          company="A&H"
-          type="New User"
-          tags={["Logged In", "Bubble Created"]}
-          color="#FF6B00"
-          activity={[
-            ["Logged In", "Comments", "Logged In"],
-            ["Bubble Created", "Logged In", "Comments"],
-          ]}
-          deviceType={[
-            ["computer", "phone", "computer"],
-            ["phone", "computer", "phone"],
-          ]}
-        />
-        <Card
-          name="Holly Li"
-          company="A&H"
-          type="Comebacker"
-          tags={["Logged In"]}
-          color="#0DA200"
-          activity={[["Logged In", "Logged In", "Logged In"]]}
-          deviceType={[["computer", "phone", "phone"]]}
-        />
-        <Card
-          name="Campbell Baron"
-          company="Mantra"
-          type="Regular"
-          tags={["Logged In", "Bubble Created", "Comments"]}
-          color="#9B51E0"
-          activity={[
-            ["Logged In", "Logged In", "Logged In"],
-            ["Bubble Created", "Logged In", "Logged In"],
-            ["Comments", "Logged In", "Logged In"],
-          ]}
-          deviceType={[
-            ["computer", "phone", "phone"],
-            ["computer", "phone", "phone"],
-            ["computer", "phone", "phone"],
-          ]}
-        />
-        <Card
-          name="Ethan Daly"
-          company="Earshot"
-          type="Dormant"
-          tags={["No Activity"]}
-          color="#EB5757"
-          activity={[[]]}
-          deviceType={[[]]}
-        />
+        {cardData.map((data, index) => (
+          <Card key={index} {...data} />
+        ))}
       </div>
     </DashboardLayout>
   );
