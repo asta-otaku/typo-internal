@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -18,6 +18,12 @@ import useStore from "../store";
 
 function DashboardLayout({ children }: any) {
   const currentModal = useStore((state: any) => state.currentModal);
+
+  useEffect(() => {
+    if (currentModal != null) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+  }, [currentModal]);
+
   const location = useLocation();
   const [nav, setNav] = useState(false);
   const toggleNav = () => setNav(!nav);
