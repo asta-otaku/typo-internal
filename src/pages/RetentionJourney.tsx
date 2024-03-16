@@ -108,7 +108,7 @@ function RetentionJourney() {
               </div>
             </div>
           ),
-          2: <UserProductProgress data={passedData} />,
+          2: <UserProductProgress setStep={setStep} data={passedData} />,
         }[step]
       }
     </DashboardLayout>

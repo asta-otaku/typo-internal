@@ -18,7 +18,7 @@ function TableModal({ data }: { data: any }) {
       <h2 className="text-xl font-bold mt-5 text-black">{data?.username}</h2>
       <p className="my-2">4567EDSHSGT</p>
       <p>333 days since sign up</p>
-      <div className="w-full flex justify-center items-center gap-2 my-2">
+      <div className="w-full flex justify-center items-center gap-1 md:gap-4 my-2">
         <div className="flex items-center gap-1">
           <img src={users} alt="" />
           <span>4 groups</span>
@@ -32,7 +32,7 @@ function TableModal({ data }: { data: any }) {
           <span>100 Comments</span>
         </div>
       </div>
-      <div className="w-full flex justify-center items-center gap-2">
+      <div className="w-full flex justify-center items-center gap-1 md:gap-4">
         <div className="flex items-center gap-1">
           <img src={bubble} alt="" />
           <span>3hours 20 Minutes</span>

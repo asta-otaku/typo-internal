@@ -32,7 +32,7 @@ function DashboardLayout({ children }: any) {
         }`}
       >
         {/* Nav section */}
-        <nav className="w-full md:w-[200px] lg:w-[280px] md:fixed z-[100] flex shrink-0 justify-between">
+        <nav className="w-full grow md:w-[200px] lg:w-[280px] md:fixed z-[100] flex shrink-0 justify-between">
           <div className="w-full flex flex-col">
             <Link to="/">
               <img src={logo} alt="logo" className="w-[12rem] md:w-full py-2" />
@@ -64,7 +64,12 @@ function DashboardLayout({ children }: any) {
                       : "text-fadedBlack"
                   }`}
                 >
-                  <ChartIcon width={22} />
+                  <ChartIcon
+                    color={
+                      location.pathname === "/retention" ? "white" : "#999"
+                    }
+                    width={22}
+                  />
                   <span>Retention</span>
                 </Link>
               </li>
@@ -90,7 +95,12 @@ function DashboardLayout({ children }: any) {
                       : "text-fadedBlack"
                   }`}
                 >
-                  <ChartIcon width={22} />
+                  <ChartIcon
+                    color={
+                      location.pathname === "/analytics" ? "white" : "#999"
+                    }
+                    width={22}
+                  />
                   <span>Analytics</span>
                 </Link>
               </li>
@@ -103,7 +113,12 @@ function DashboardLayout({ children }: any) {
                       : "text-fadedBlack"
                   }`}
                 >
-                  <DiscountIcon width={22} />
+                  <DiscountIcon
+                    color={
+                      location.pathname === "/user-ranking" ? "white" : "#999"
+                    }
+                    width={22}
+                  />
                   <span>User Ranking</span>
                 </Link>
               </li>
@@ -129,7 +144,10 @@ function DashboardLayout({ children }: any) {
                       : "text-fadedBlack"
                   }`}
                 >
-                  <WaitListIcon width={22} />
+                  <WaitListIcon
+                    color={location.pathname === "/waitlist" ? "white" : "grey"}
+                    width={22}
+                  />
                   <span>Waitlist</span>
                 </Link>
               </li>
@@ -142,7 +160,14 @@ function DashboardLayout({ children }: any) {
                       : "text-fadedBlack"
                   }`}
                 >
-                  <RetentionJourneyIcon width={22} />
+                  <RetentionJourneyIcon
+                    color={
+                      location.pathname === "/retention-journey"
+                        ? "white"
+                        : "#999"
+                    }
+                    width={22}
+                  />
                   <span>Retention Journey</span>
                 </Link>
               </li>

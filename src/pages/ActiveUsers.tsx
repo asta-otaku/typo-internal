@@ -1,7 +1,7 @@
 import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
 import Card from "../components//UserCard";
-import { SmartPhoneIcon, ComputerIcon } from "../assets/icons";
+import { ChevronDownIcon } from "../assets/icons";
 
 function ActiveUsers() {
   return (
@@ -11,15 +11,24 @@ function ActiveUsers() {
         description="Select the category to view the leaderboards"
       />
       <div className="my-6 w-full py-3 flex gap-4">
-        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
-          <option value={"user"}>User Type</option>
-        </select>
-        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
-          <option value={"all"}>All Activity</option>
-        </select>
-        <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[110px]">
-          <option value={"24-hours"}>24 Hours</option>
-        </select>
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+          <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+            <option>User Type</option>
+          </select>
+          <ChevronDownIcon width={12} />
+        </div>
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+          <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+            <option>All Activity</option>
+          </select>
+          <ChevronDownIcon width={12} />
+        </div>
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+          <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+            <option>24 Hours</option>
+          </select>
+          <ChevronDownIcon width={12} />
+        </div>
       </div>
 
       <div className="flex  items-stretch flex-wrap gap-4 md:gap-y-8">
@@ -30,12 +39,13 @@ function ActiveUsers() {
           tags={["Logged In", "Bubble Created"]}
           color="#FF6B00"
           activity={[
-            "Bubble Created",
-            "Bubble Created",
-            "Logged In",
-            "Bubble Created",
+            ["Logged In", "Comments", "Logged In"],
+            ["Bubble Created", "Logged In", "Comments"],
           ]}
-          Icons={[SmartPhoneIcon, ComputerIcon, SmartPhoneIcon, ComputerIcon]}
+          deviceType={[
+            ["computer", "phone", "computer"],
+            ["phone", "computer", "phone"],
+          ]}
         />
         <Card
           name="Holly Li"
@@ -43,8 +53,8 @@ function ActiveUsers() {
           type="Comebacker"
           tags={["Logged In"]}
           color="#0DA200"
-          activity={["Logged In", "Logged In", "Logged In"]}
-          Icons={[SmartPhoneIcon, SmartPhoneIcon, ComputerIcon]}
+          activity={[["Logged In", "Logged In", "Logged In"]]}
+          deviceType={[["computer", "phone", "phone"]]}
         />
         <Card
           name="Campbell Baron"
@@ -52,8 +62,16 @@ function ActiveUsers() {
           type="Regular"
           tags={["Logged In", "Bubble Created", "Comments"]}
           color="#9B51E0"
-          activity={["Bubble Created", "Bubble Created", "Logged In"]}
-          Icons={[ComputerIcon, ComputerIcon, ComputerIcon]}
+          activity={[
+            ["Logged In", "Logged In", "Logged In"],
+            ["Bubble Created", "Logged In", "Logged In"],
+            ["Comments", "Logged In", "Logged In"],
+          ]}
+          deviceType={[
+            ["computer", "phone", "phone"],
+            ["computer", "phone", "phone"],
+            ["computer", "phone", "phone"],
+          ]}
         />
         <Card
           name="Ethan Daly"
@@ -61,8 +79,8 @@ function ActiveUsers() {
           type="Dormant"
           tags={["No Activity"]}
           color="#EB5757"
-          activity={[]}
-          Icons={[]}
+          activity={[[]]}
+          deviceType={[[]]}
         />
       </div>
     </DashboardLayout>

@@ -9,8 +9,8 @@ function Retention() {
     <DashboardLayout>
       <div>
         <DashboardNav title="D5/D7" />
-        <div className="flex flex-wrap gap-8 justify-center md:justify-between mt-6 w-full">
-          <ul className="flex flex-col gap-3 font-semibold max-w-[400px] w-full">
+        <div className="flex flex-wrap gap-8 justify-center md:justify-between items-stretch mt-6">
+          <ul className="flex flex-col gap-3 font-semibold w-[300px] md:w-[400px] grow">
             <li className="bg-primary text-white text-base w-full p-3 pr-5 rounded-md">
               {"Day 5"} Log
             </li>
@@ -23,7 +23,7 @@ function Retention() {
               </li>
             ))}
           </ul>
-          <ul className="flex flex-col gap-3 font-semibold max-w-[400px] w-full">
+          <ul className="flex flex-col gap-3 font-semibold w-[300px] md:w-[400px] grow">
             <li className="bg-[#0DA200] text-white text-base w-full p-3 pr-5 rounded-md">
               {"Day 7"} Log
             </li>

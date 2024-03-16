@@ -36,24 +36,24 @@ export function ChartIcon(props: SVGAttributes<SVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g opacity="0.5" clip-path="url(#clip0_1_4970)">
+      <g clipPath="url(#clip0_1_4970)">
         <path
           d="M4.91406 6.80115V11.3746"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M8.02539 4.61279V11.3746"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M11.085 9.2179V11.3746"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -62,7 +62,7 @@ export function ChartIcon(props: SVGAttributes<SVGElement>) {
           fillRule="evenodd"
           clipRule="evenodd"
           d="M11.1235 1.33337H4.87586C2.69809 1.33337 1.33301 2.87476 1.33301 5.05681V10.9433C1.33301 13.1253 2.69174 14.6667 4.87586 14.6667H11.1235C13.3076 14.6667 14.6663 13.1253 14.6663 10.9433V5.05681C14.6663 2.87476 13.3076 1.33337 11.1235 1.33337Z"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -100,6 +100,26 @@ export function CheckMarkIcon(props: SVGAttributes<SVGElement>) {
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ChevronDownIcon(props: SVGAttributes<SVGElement>) {
+  return (
+    <svg
+      fill="none"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m19.5 8.25-7.5 7.5-7.5-7.5"
       />
     </svg>
   );
@@ -200,33 +220,33 @@ export function DiscountIcon(props: SVGAttributes<SVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g opacity="0.5">
+      <g>
         <path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M3.19618 4.70401C3.19618 3.87134 3.87085 3.19667 4.70352 3.19601H5.38952C5.78752 3.19601 6.16885 3.03801 6.45152 2.75801L6.93085 2.27801C7.51818 1.68734 8.47285 1.68467 9.06352 2.27201L9.06418 2.27267L9.07018 2.27801L9.55018 2.75801C9.83285 3.03867 10.2142 3.19601 10.6122 3.19601H11.2975C12.1302 3.19601 12.8055 3.87067 12.8055 4.70401V5.38867C12.8055 5.78667 12.9628 6.16867 13.2435 6.45134L13.7235 6.93134C14.3142 7.51867 14.3175 8.47334 13.7302 9.06401L13.7295 9.06467L13.7235 9.07067L13.2435 9.55067C12.9628 9.83267 12.8055 10.214 12.8055 10.612V11.298C12.8055 12.1307 12.1309 12.8053 11.2982 12.8053H10.6109C10.2129 12.8053 9.83085 12.9633 9.54885 13.244L9.06885 13.7233C8.48218 14.314 7.52818 14.3173 6.93752 13.7313C6.93685 13.7307 6.93618 13.73 6.93552 13.7293L6.92952 13.7233L6.45018 13.244C6.16818 12.9633 5.78618 12.806 5.38818 12.8053H4.70352C3.87085 12.8053 3.19618 12.1307 3.19618 11.298V10.6107C3.19618 10.2127 3.03818 9.83134 2.75752 9.54934L2.27818 9.06934C1.68752 8.48267 1.68418 7.52867 2.27085 6.93801C2.27085 6.93734 2.27152 6.93667 2.27218 6.93601L2.27818 6.93001L2.75752 6.45001C3.03818 6.16734 3.19618 5.78601 3.19618 5.38734V4.70401Z"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M6.28711 9.71451L9.71378 6.28784"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M9.66309 9.66663H9.66909"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M6.33008 6.33337H6.33608"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -331,10 +351,10 @@ export function RetentionJourneyIcon(props: SVGAttributes<SVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g opacity="0.5">
+      <g>
         <path
           d="M9.49074 3.52786C9.49074 3.18128 9.49074 3.00799 9.4526 2.86581C9.34927 2.47998 9.04787 2.17862 8.66207 2.07524C8.28767 1.97492 7.71234 1.97492 7.33794 2.07524C6.95214 2.17862 6.65077 2.47998 6.54738 2.86581C6.50929 3.00799 6.50929 3.18128 6.50929 3.52786C6.50929 4.23059 6.50929 6.07267 6.29098 6.29098C6.07267 6.50929 4.23059 6.50929 3.52786 6.50929C3.18128 6.50929 3.00799 6.50929 2.86581 6.54738C2.47998 6.65077 2.17862 6.95214 2.07524 7.33794C1.97492 7.71234 1.97492 8.28767 2.07524 8.66207C2.17862 9.04787 2.47998 9.34927 2.86581 9.4526C3.00799 9.49074 3.18128 9.49074 3.52786 9.49074C4.23059 9.49074 6.07267 9.49074 6.29098 9.709C6.50929 9.92734 6.50929 10.2787 6.50929 10.9814C6.50929 11.328 6.50929 12.9921 6.54738 13.1342C6.65077 13.52 6.95214 13.8214 7.33794 13.9247C7.71234 14.0251 8.28767 14.0251 8.66207 13.9247C9.04787 13.8214 9.34927 13.52 9.4526 13.1342C9.49074 12.9921 9.49074 11.328 9.49074 10.9814C9.49074 10.2787 9.49074 9.92734 9.709 9.709C9.92734 9.49074 11.7694 9.49074 12.4721 9.49074C12.8187 9.49074 12.9921 9.49074 13.1342 9.4526C13.52 9.34927 13.8214 9.04787 13.9247 8.66207C14.0251 8.28767 14.0251 7.71234 13.9247 7.33794C13.8214 6.95214 13.52 6.65077 13.1342 6.54738C12.9921 6.50929 12.8187 6.50929 12.4721 6.50929C11.7694 6.50929 9.92734 6.50929 9.709 6.29098C9.49074 6.07267 9.49074 4.23059 9.49074 3.52786Z"
-          stroke="black"
+          stroke={props.color}
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -440,14 +460,14 @@ export function WaitListIcon(props: SVGAttributes<SVGElement>) {
     >
       <path
         d="M4.66699 6.18969C5.77811 4.85685 6.88919 5.24693 8.00033 6.22214C9.11146 7.19732 10.2225 7.58745 11.3337 6.25459M4.66699 9.74525C5.77811 8.41239 6.88919 8.80252 8.00033 9.77772C9.11146 10.7529 10.2225 11.143 11.3337 9.81012"
-        stroke="grey"
+        stroke={props.color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M1.66699 8.00008C1.66699 5.01452 1.66699 3.52174 2.59449 2.59424C3.52199 1.66675 5.01477 1.66675 8.00033 1.66675C10.9859 1.66675 12.4787 1.66675 13.4062 2.59424C14.3337 3.52174 14.3337 5.01452 14.3337 8.00008C14.3337 10.9856 14.3337 12.4784 13.4062 13.4059C12.4787 14.3334 10.9859 14.3334 8.00033 14.3334C5.01477 14.3334 3.52199 14.3334 2.59449 13.4059C1.66699 12.4784 1.66699 10.9856 1.66699 8.00008Z"
-        stroke="grey"
+        stroke={props.color}
         strokeWidth="1.5"
         strokeLinejoin="round"
       />

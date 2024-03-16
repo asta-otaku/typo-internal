@@ -7,6 +7,28 @@ import AreaChart from "../utils/AreaChart";
 import BarChart from "../utils/BarChart";
 import DoughnutChart from "../utils/DoughnutChart";
 import LineChart from "../utils/LineChart";
+import { ChevronDownIcon } from "../assets/icons";
+
+const cartData = [
+  {
+    title: "Messages sent",
+    value: "8,888",
+    percentage: 18.23,
+    imagepath: send,
+  },
+  {
+    title: "Bubbles Sent",
+    value: "4.444",
+    percentage: 18.23,
+    imagepath: chat,
+  },
+  {
+    title: "Comment-sent",
+    value: "4,444",
+    percentage: -18.23,
+    imagepath: chat,
+  },
+];
 
 function App() {
   return (
@@ -16,24 +38,9 @@ function App() {
         Dashboard
       </h3>
       <div className="flex flex-col md:flex-row flex-wrap gap-6 items-stretch md:justify-between w-full my-5">
-        <Card
-          title="Messages sent"
-          value={"8,888"}
-          percentage={18.23}
-          imagepath={send}
-        />
-        <Card
-          title="Bubbles Sent"
-          value={"4.444"}
-          percentage={18.23}
-          imagepath={chat}
-        />
-        <Card
-          title="Comment-sent"
-          value={"4,444"}
-          percentage={-18.23}
-          imagepath={chat}
-        />
+        {cartData.map((data, i) => (
+          <Card key={i} {...data} />
+        ))}
       </div>
       <div className="rounded-3xl border border-solid border-[#D9D9D9] w-full flex flex-col lg:flex-row flex-wrap justify-between items-stretch">
         {Array(3)
@@ -45,9 +52,12 @@ function App() {
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-black text-sm">Log-in Counts</h3>
-                <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[80px] md:w-[110px]">
-                  <option>All Time</option>
-                </select>
+                <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+                  <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+                    <option>All Time</option>
+                  </select>
+                  <ChevronDownIcon width={12} />
+                </div>
               </div>
               <div className="flex gap-1 items-baseline">
                 <h3 className="text-black text-3xl font-bold">24</h3>
@@ -79,9 +89,12 @@ function App() {
                 <span className="w-2 h-2 rounded-full bg-[#ABB0BC]" />
                 <p className="text-fadedBlack text-xs">Messages</p>
               </div>
-              <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[80px] md:w-[110px]">
-                <option>All Time</option>
-              </select>
+              <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+                <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+                  <option>All Time</option>
+                </select>
+                <ChevronDownIcon width={12} />
+              </div>
             </div>
           </div>
           <div>
@@ -92,14 +105,17 @@ function App() {
         <div className="rounded-3xl border border-solid border-[#D9D9D9] lg:max-w-[40%] w-full p-6 flex flex-col justify-between">
           <div className="flex items-center justify-between w-full">
             <h3 className="text-black font-medium text-sm">Aggregate Level</h3>
-            <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[80px] md:w-[110px]">
-              <option>All Time</option>
-            </select>
+            <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+              <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+                <option>All Time</option>
+              </select>
+              <ChevronDownIcon width={12} />
+            </div>
           </div>
-          <span className="self-center">
+          <span className="self-center max-w-[150px] md:max-w-xs">
             <DoughnutChart />
           </span>
-          <div className="flex flex-col gap-2 -mt-8">
+          <div className="flex flex-col gap-2 md:-mt-4">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-3 rounded-sm bg-primary" />
               <p className="text-fadedBlack text-sm">Bubbles</p>
@@ -115,9 +131,12 @@ function App() {
       <div className="rounded-3xl border border-solid border-[#D9D9D9] w-full p-6 flex flex-col justify-between">
         <div className="flex items-center justify-between w-full">
           <h3 className="text-black font-medium text-sm">Aggregate Level</h3>
-          <select className="outline-none text-fadedBlack text-xs font-semibold bg-white border border-solid border-[#DBDBDB] rounded-2xl p-3 w-[80px] md:w-[110px]">
-            <option>All Time</option>
-          </select>
+          <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+            <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+              <option>All Time</option>
+            </select>
+            <ChevronDownIcon width={12} />
+          </div>
         </div>
         <div>
           <LineChart />

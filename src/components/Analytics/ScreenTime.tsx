@@ -1,5 +1,29 @@
 import greenarrow from "../../assets/greenarrow.svg";
+import { ChevronDownIcon } from "../../assets/icons";
 import redarrow from "../../assets/redarrow.svg";
+
+const cardData = [
+  {
+    category: "Individual",
+    value: "4 hours 20 mins",
+    percentage: 5,
+  },
+  {
+    category: "Groups",
+    value: "2 hours 20 mins",
+    percentage: 5,
+  },
+  {
+    category: "Total",
+    value: "6 hours 40 mins",
+    percentage: 5,
+  },
+  {
+    category: "Average",
+    value: "2 hours 20 mins",
+    percentage: -5,
+  },
+];
 
 function ScreenTime() {
   return (
@@ -11,10 +35,9 @@ function ScreenTime() {
         Analysis of the usage of the application
       </p>
       <div className="flex flex-wrap justify-center md:justify-start gap-4 my-5">
-        <Card category="Individual" value="4 hours 20 mins" percentage={5} />
-        <Card category="Groups" value="2 hours 20 mins" percentage={5} />
-        <Card category="Total" value="6 hours 40 mins" percentage={5} />
-        <Card category="Average" value="2 hours 20 mins" percentage={-5} />
+        {cardData.map((data, index) => (
+          <Card key={index} {...data} />
+        ))}
       </div>
     </div>
   );
@@ -38,9 +61,12 @@ function Card({
           <h6 className="text-base font-light">Screen-Time</h6>
           <h4 className="text-primary font-semibold mt-1">{category}</h4>
         </div>
-        <select className="outline-none text-fadedBlack text-xs font-medium bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px]">
-          <option>This week</option>
-        </select>
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px] self-end">
+          <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+            <option>This Week</option>
+          </select>
+          <ChevronDownIcon width={12} />
+        </div>
       </div>
 
       <div>

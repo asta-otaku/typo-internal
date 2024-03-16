@@ -1,6 +1,7 @@
 // import bigareachart from "../../assets/Chart 10.svg";
 // import smallareachart from "../../assets/Chart 13.svg";
 import greenarrow from "../../assets/greenarrow.svg";
+import { ChevronDownIcon } from "../../assets/icons";
 import AreaChart from "../../utils/AreaChart";
 
 function MessagesSent() {
@@ -10,9 +11,12 @@ function MessagesSent() {
       <p className="text-fadedBlack text-xs mt-1">
         Analysis of the usage of the application
       </p>
-      <select className="outline-none text-fadedBlack text-xs font-medium bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px] self-end">
-        <option>This week</option>
-      </select>
+      <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px] self-end">
+        <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+          <option>This Week</option>
+        </select>
+        <ChevronDownIcon width={12} />
+      </div>
       <div className="w-full mt-5 flex flex-col gap-6">
         <div className="rounded-2xl bg-offwhite w-full">
           <div className="p-8">

@@ -1,7 +1,53 @@
 import { useState } from "react";
 import greenarrow from "../../assets/greenarrow.svg";
 import redarrow from "../../assets/redarrow.svg";
-import { ProfileIcon } from "../../assets/icons";
+import { ChevronDownIcon, ProfileIcon } from "../../assets/icons";
+
+const generalData = [
+  {
+    title: "No of Occurence",
+    value: 400,
+  },
+  {
+    title: "No of Users Affected",
+    value: 400,
+  },
+  {
+    title: "Frequency",
+    value: "1 / 78",
+  },
+];
+
+const reasonData = [
+  {
+    reason: "Bad Connection",
+    color: "#0DA200",
+    users: "400",
+    percentage: 5,
+    frequency: "1/30",
+  },
+  {
+    reason: "Bad Server",
+    color: "#FB3E3E",
+    users: "400",
+    percentage: 5,
+    frequency: 400,
+  },
+  {
+    reason: "HEIC not Loaded",
+    color: "#FF6B00",
+    users: "400",
+    percentage: 5,
+    frequency: 400,
+  },
+  {
+    reason: "Bad Server",
+    color: "#6F00B3",
+    users: "400",
+    percentage: -5,
+    frequency: 400,
+  },
+];
 
 function CrashReport() {
   const [type, setType] = useState("general");
@@ -42,54 +88,28 @@ function CrashReport() {
           </div>
         ))}
       </nav>
-      <select className="outline-none text-fadedBlack text-xs font-medium my-2 bg-white border border-solid border-[#DBDBDB] rounded-md p-3 w-[100px] self-end">
-        <option>This week</option>
-      </select>
+      <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px] self-end">
+        <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
+          <option>This Week</option>
+        </select>
+        <ChevronDownIcon width={12} />
+      </div>
 
       <div className="my-4">
         {
           {
             general: (
               <div className="flex justify-center md:justify-start gap-4 flex-wrap">
-                <GeneralCard title="No of Occurence" value={400} />
-                <GeneralCard title="No of Users Affected" value={400} />
-                <GeneralCard title="Frequency" value={"1 / 78"} />
+                {generalData.map((data, index) => (
+                  <GeneralCard key={index} {...data} />
+                ))}
               </div>
             ),
             reason: (
               <div className="flex justify-center md:justify-start gap-4 flex-wrap">
-                <ReasonCard
-                  reason="Bad Connection"
-                  color="#0DA200"
-                  users="400"
-                  percentage={5}
-                  frequency={"1/30"}
-                  imagepath={greenarrow}
-                />
-                <ReasonCard
-                  reason="Bad Server"
-                  color="#FB3E3E"
-                  users="400"
-                  percentage={5}
-                  frequency={400}
-                  imagepath={greenarrow}
-                />
-                <ReasonCard
-                  reason="HEIC not Loaded"
-                  color="#FF6B00"
-                  users="400"
-                  percentage={5}
-                  frequency={400}
-                  imagepath={greenarrow}
-                />
-                <ReasonCard
-                  reason="Bad Server"
-                  color="#6F00B3"
-                  users="400"
-                  percentage={5}
-                  frequency={400}
-                  imagepath={redarrow}
-                />
+                {reasonData.map((data, index) => (
+                  <ReasonCard key={index} {...data} />
+                ))}
               </div>
             ),
             affected: (
@@ -221,14 +241,12 @@ function ReasonCard({
   users,
   percentage,
   frequency,
-  imagepath,
 }: {
   reason: string;
   color: string;
   users: string;
   percentage: number;
   frequency: string | number;
-  imagepath: string;
 }) {
   return (
     <div className="rounded-3xl bg-offwhite p-8 flex flex-col justify-between h-[250px] max-w-[320px] w-full">
@@ -246,9 +264,9 @@ function ReasonCard({
           />
           <h2 className="text-black font-semibold text-2xl">{users}</h2>
           <div className="flex gap-1">
-            <img src={imagepath} alt="" />
-            <p className={`text-xs font-medium text-[${color}]`}>
-              {percentage}%
+            <img src={percentage > 0 ? greenarrow : redarrow} alt="" />
+            <p style={{ color }} className="text-xs font-medium]">
+              {Math.abs(percentage)}%
             </p>
           </div>
         </div>
@@ -271,9 +289,9 @@ function ReasonCard({
             )}
           </h2>
           <div className="flex gap-1">
-            <img src={imagepath} alt="" />
-            <p className={`text-xs font-medium text-[${color}]`}>
-              {percentage}%
+            <img src={percentage > 0 ? greenarrow : redarrow} alt="" />
+            <p style={{ color }} className="text-xs font-medium]">
+              {Math.abs(percentage)}%
             </p>
           </div>
         </div>

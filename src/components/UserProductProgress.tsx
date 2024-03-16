@@ -1,11 +1,12 @@
 import DashboardNav from "./DashboardNav";
 import { CheckMarkIcon } from "../assets/icons";
 
-function UserProductProgress({ data }: { data: any }) {
+function UserProductProgress({ data, setStep }: { data: any; setStep: any }) {
   const value = data.actionCompleted > 10 ? 10 : data.actionCompleted;
   return (
     <div>
       <DashboardNav
+        back={() => setStep(1)}
         title="User Product's Progress"
         description="Select the category to view leaderboards."
       />

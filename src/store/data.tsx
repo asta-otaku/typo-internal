@@ -337,6 +337,97 @@ export const GROUPREPORTDATA = [
   },
 ];
 
+export const GROUPREPORTSUMMARYDATA = [
+  {
+    username: "-------",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Earshot",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Evenings",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "No Signal",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Spring Agency",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Bayy Agency",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Mother (NYC A)",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Blooming Dales",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Not Yet Mad",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Zynga",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+  {
+    username: "Interact",
+    days_since_onboarding: "4",
+    logged_in: "4",
+    created_bubble: "4",
+    created_comment: "4",
+    no_activity: "--",
+  },
+];
+
 export const GROUPUSERRANKINGDATA = [
   {
     id: 1,
