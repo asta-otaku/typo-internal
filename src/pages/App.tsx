@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import DashboardLayout from "../layout/DashboardLayout";
 import chat from "../assets/Chatwhite.svg";
 import send from "../assets/Send.svg";
@@ -9,28 +11,136 @@ import DoughnutChart from "../charts/DoughnutChart";
 import LineChart from "../charts/LineChart";
 import { ChevronDownIcon } from "../assets/icons";
 
-const cartData = [
-  {
-    title: "Messages sent",
-    value: "8,888",
-    percentage: 18.23,
-    imagepath: send,
-  },
-  {
-    title: "Bubbles Sent",
-    value: "4.444",
-    percentage: 18.23,
-    imagepath: chat,
-  },
-  {
-    title: "Comment-sent",
-    value: "4,444",
-    percentage: -18.23,
-    imagepath: chat,
-  },
-];
-
 function App() {
+  const [totalMessages, setTotalMessages] = useState<string | null>(null);
+  const [totalComments, setTotalComments] = useState<string | null>(null);
+  const [totalArtifacts, setTotalArtifacts] = useState<string | null>(null);
+  const [messagesPercentageChange, setMessagesPercentageChange] = useState<
+    number | null
+  >(null);
+  const [bubblesPercentageChange, setBubblesPercentageChange] = useState<
+    number | null
+  >(null);
+  const [commentsPercentageChange, setCommentsPercentageChange] = useState<
+    number | null
+  >(null);
+
+  useEffect(() => {
+    const fetchTotalMessages = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/messages/count",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "dc60dc1e-182b-4314-b2e7-f9eff78b7450",
+            },
+          }
+        );
+        // console.log('Total Messages response:', JSON.stringify(response.data, null, 2));
+        setTotalMessages(response.data.totalMessagesSent);
+      } catch (error) {
+        console.error("Error fetching total messages:", error);
+      }
+    };
+
+    const fetchTotalComments = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/comments/count",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "048bff35-6fbd-4f69-9b55-55a0e291b37c",
+            },
+          }
+        );
+        setTotalComments(response.data.totalCommentsSent);
+      } catch (error) {
+        console.error("Error fetching total comments:", error);
+      }
+    };
+
+    const fetchTotalArtifacts = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/artifacts/count",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "861f4c04-e718-43f4-9c4f-656910d71cd9",
+            },
+          }
+        );
+        setTotalArtifacts(response.data.totalArtifactsCount);
+      } catch (error) {
+        console.error("Error fetching total artifacts:", error);
+      }
+    };
+    const fetchMessagesPercentageChange = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/messages/percentageChange",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "861f4c04-e718-43f4-9c4f-656910d71cd9",
+            },
+          }
+        );
+        setMessagesPercentageChange(
+          parseFloat(response.data.percentageChange.toFixed(2))
+        );
+      } catch (error) {
+        console.error("Error fetching messages percentage change:", error);
+      }
+    };
+
+    const fetchArtifactsPercentageChange = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/artifacts/percentageChange",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "861f4c04-e718-43f4-9c4f-656910d71cd9",
+            },
+          }
+        );
+        setBubblesPercentageChange(
+          parseFloat(response.data.percentageChange.toFixed(2))
+        );
+      } catch (error) {
+        console.error("Error fetching artifacts percentage change:", error);
+      }
+    };
+
+    const fetchCommentsPercentageChange = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/analytics/comments/percentageChange",
+          {
+            headers: {
+              accept: "*/*",
+              "x-user-id": "861f4c04-e718-43f4-9c4f-656910d71cd9",
+            },
+          }
+        );
+        setCommentsPercentageChange(
+          parseFloat(response.data.percentageChange.toFixed(2))
+        );
+      } catch (error) {
+        console.error("Error fetching comments percentage change:", error);
+      }
+    };
+
+    fetchMessagesPercentageChange();
+    fetchArtifactsPercentageChange();
+    fetchCommentsPercentageChange();
+    fetchTotalMessages();
+    fetchTotalComments();
+    fetchTotalArtifacts();
+  }, []);
   return (
     <DashboardLayout>
       <p className="text-xs text-fadedBlack">Welcome Sahil</p>
@@ -38,9 +148,24 @@ function App() {
         Dashboard
       </h3>
       <div className="flex flex-col md:flex-row flex-wrap gap-6 items-stretch md:justify-between w-full my-5">
-        {cartData.map((data, i) => (
-          <Card key={i} {...data} />
-        ))}
+        <Card
+          title="Messages Sent"
+          value={totalMessages || "Loading..."}
+          percentage={messagesPercentageChange || 0}
+          imagepath={send}
+        />
+        <Card
+          title="Bubbles Sent"
+          value={totalArtifacts || "Loading..."}
+          percentage={bubblesPercentageChange || 0}
+          imagepath={chat}
+        />
+        <Card
+          title="Comments Sent"
+          value={totalComments || "Loading..."}
+          percentage={commentsPercentageChange || 0}
+          imagepath={chat}
+        />
       </div>
       <div className="rounded-3xl border border-solid border-[#D9D9D9] w-full flex flex-col lg:flex-row flex-wrap justify-between items-stretch">
         {Array(3)
@@ -52,7 +177,7 @@ function App() {
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-black text-sm">Log-in Counts</h3>
-                <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+                <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
                   <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
                     <option>All Time</option>
                   </select>
@@ -87,9 +212,9 @@ function App() {
               </div>
               <div className="flex items-center gap-0.5 md:gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#ABB0BC]" />
-                <p className="text-fadedBlack text-xs">Messages</p>
+                <p className="text-fadedBlack text-xs">Comments</p>
               </div>
-              <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+              <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
                 <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
                   <option>All Time</option>
                 </select>
@@ -105,7 +230,7 @@ function App() {
         <div className="rounded-3xl border border-solid border-[#D9D9D9] lg:max-w-[40%] w-full p-6 flex flex-col justify-between">
           <div className="flex items-center justify-between w-full">
             <h3 className="text-black font-medium text-sm">Aggregate Level</h3>
-            <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+            <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
               <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
                 <option>All Time</option>
               </select>
@@ -122,7 +247,7 @@ function App() {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-3 rounded-sm bg-[#ABB0BC]" />
-              <p className="text-fadedBlack text-sm">Messages</p>
+              <p className="text-fadedBlack text-sm">Comments</p>
             </div>
           </div>
         </div>
@@ -131,7 +256,7 @@ function App() {
       <div className="rounded-3xl border border-solid border-[#D9D9D9] w-full p-6 flex flex-col justify-between">
         <div className="flex items-center justify-between w-full">
           <h3 className="text-black font-medium text-sm">Aggregate Level</h3>
-          <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+          <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
             <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
               <option>All Time</option>
             </select>

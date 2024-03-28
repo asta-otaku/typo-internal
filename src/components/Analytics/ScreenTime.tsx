@@ -61,7 +61,7 @@ function Card({
           <h6 className="text-base font-light">Screen-Time</h6>
           <h4 className="text-primary font-semibold mt-1">{category}</h4>
         </div>
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px] self-end">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit self-end">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option>This Week</option>
           </select>

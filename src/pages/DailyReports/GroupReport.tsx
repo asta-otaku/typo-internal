@@ -9,7 +9,8 @@ import TableBody from "../../components/DailyReport/TableBody";
 import TableHeader from "../../components/DailyReport/TableHeader";
 
 function GroupReports() {
-  const [tableType, setTableType] = useState("");
+  const stored = localStorage.getItem("tableType");
+  const [tableType, setTableType] = useState(stored || "");
   const [tableData, setTableData] = useState<any>(groupTableData);
 
   useEffect(() => {
@@ -18,13 +19,15 @@ function GroupReports() {
     } else {
       setTableData(groupTableData);
     }
+    localStorage.setItem("tableType", tableType);
   }, [tableType]);
 
   return (
     <DailyReportsLayout>
       <div className="my-6 w-full py-3 flex gap-4 text-xs border-solid border-x-0 border-y-[1px] border-[#DBDBDB]">
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[150px]">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
           <select
+            defaultValue={tableType}
             onChange={(e) => setTableType(e.target.value)}
             className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent"
           >
@@ -34,7 +37,7 @@ function GroupReports() {
           <ChevronDownIcon width={12} />
         </div>
 
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[180px]">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option value={"weekly-report"}>6 Jan - 12 Jan</option>
             <option value={"29dec-5jan"}>29th Dec - 5 Jan</option>

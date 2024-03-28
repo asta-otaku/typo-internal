@@ -1,62 +1,49 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
-import Card from "../components//UserCard";
+import Card from "../components/UserCard"; // Ensure the correct path is provided
 import { ChevronDownIcon } from "../assets/icons";
 
-const cardData = [
-  {
-    name: "Austin Wu",
-    company: "A&H",
-    type: "New User",
-    tags: ["Logged In", "Bubble Created"],
-    color: "#FF6B00",
-    activity: [
-      ["Logged In", "Comments", "Logged In"],
-      ["Bubble Created", "Logged In", "Comments"],
-    ],
-    deviceType: [
-      ["computer", "phone", "computer"],
-      ["phone", "computer", "phone"],
-    ],
-  },
-  {
-    name: "Holly Li",
-    company: "A&H",
-    type: "Comebacker",
-    tags: ["Logged In"],
-    color: "#0DA200",
-    activity: [["Logged In", "Logged In", "Logged In"]],
-    deviceType: [["computer", "phone", "phone"]],
-  },
-  {
-    name: "Campbell Baron",
-    company: "Mantra",
-    type: "Regular",
-    tags: ["Logged In", "Bubble Created", "Comments"],
-    color: "#9B51E0",
-    activity: [
-      ["Logged In", "Logged In", "Logged In"],
-      ["Bubble Created", "Logged In", "Logged In"],
-      ["Comments", "Logged In", "Logged In"],
-    ],
-    deviceType: [
-      ["computer", "phone", "phone"],
-      ["computer", "phone", "phone"],
-      ["computer", "phone", "phone"],
-    ],
-  },
-  {
-    name: "Ethan Daly",
-    company: "Earshot",
-    type: "Dormant",
-    tags: ["No Activity"],
-    color: "#EB5757",
-    activity: [[]],
-    deviceType: [[]],
-  },
-];
+type ActiveUserDto = {
+  name: string;
+  team: string;
+  userType: string;
+  tags: string[];
+  activity: string[][];
+  activityTimestamps: string[][];
+  deviceType: string[][];
+  lastActivityTime: number;
+};
 
 function ActiveUsers() {
+  const [activeUsers, setActiveUsers] = useState<ActiveUserDto[]>([]);
+
+  useEffect(() => {
+    const fetchActiveUsers = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5269/api/activeUsers",
+          {
+            headers: {
+              accept: "application/json",
+              "x-user-id": "dc60dc1e-182b-4314-b2e7-f9eff78b7450",
+            },
+          }
+        );
+        const sortedUsers = response.data.sort(
+          (a: ActiveUserDto, b: ActiveUserDto) =>
+            a.lastActivityTime - b.lastActivityTime
+        );
+        setActiveUsers(sortedUsers);
+      } catch (error) {
+        console.error("Error fetching active users:", error);
+      }
+    };
+
+    fetchActiveUsers();
+  }, []);
+
   return (
     <DashboardLayout>
       <DashboardNav
@@ -64,19 +51,19 @@ function ActiveUsers() {
         description="Select the category to view the leaderboards"
       />
       <div className="my-6 w-full py-3 flex gap-4">
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option>User Type</option>
           </select>
           <ChevronDownIcon width={12} />
         </div>
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option>All Activity</option>
           </select>
           <ChevronDownIcon width={12} />
         </div>
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px]">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option>24 Hours</option>
           </select>
@@ -85,7 +72,7 @@ function ActiveUsers() {
       </div>
 
       <div className="flex  items-stretch flex-wrap gap-4 md:gap-y-8">
-        {cardData.map((data, index) => (
+        {activeUsers.map((data, index) => (
           <Card key={index} {...data} />
         ))}
       </div>

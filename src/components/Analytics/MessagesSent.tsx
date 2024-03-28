@@ -11,7 +11,7 @@ function MessagesSent() {
       <p className="text-fadedBlack text-xs mt-1">
         Analysis of the usage of the application
       </p>
-      <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl px-1 py-2 w-[120px] self-end">
+      <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit self-end">
         <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
           <option>This Week</option>
         </select>
