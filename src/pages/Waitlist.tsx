@@ -1,8 +1,22 @@
+import { useState } from "react";
 import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
 import { WAITLISTDATA as tableData } from "../store/data";
+import ReactPaginate from "react-paginate";
 
 function Waitlist() {
+  //pagination logic
+  const itemsPerPage = 24;
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageCount = Math.ceil(tableData.length / itemsPerPage);
+
+  const handlePageChange = ({ selected }: { selected: any }) => {
+    setCurrentPage(selected);
+  };
+  const displayedData = tableData.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
   return (
     <DashboardLayout>
       <DashboardNav
@@ -25,7 +39,7 @@ function Waitlist() {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {tableData.map((data: { [key: string]: string }, index) => (
+            {displayedData.map((data: { [key: string]: string }, index) => (
               <tr key={index} className="cursor-pointer hover:bg-primary/10">
                 {Object.keys(data).map((key) => (
                   <td key={key} className={`px-6 py-4 whitespace-nowrap`}>
@@ -37,6 +51,19 @@ function Waitlist() {
           </tbody>
         </table>
       </div>
+
+      <ReactPaginate
+        previousLabel={""}
+        nextLabel={""}
+        breakLabel={"..."}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageChange}
+        pageClassName="block border hover:bg-primary/80 hover:text-white border-primary rounded-lg p-1.5 cursor-pointer"
+        containerClassName="flex justify-center items-center font-medium mt-12 gap-5"
+        activeClassName="bg-primary border border-primary text-white"
+      />
     </DashboardLayout>
   );
 }

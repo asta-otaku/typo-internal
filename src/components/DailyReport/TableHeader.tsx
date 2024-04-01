@@ -11,12 +11,9 @@ function TableHeader({
   return (
     <thead className="text-fadedBlack font-semibold">
       {tableType !== "summary" ? (
-        <tr className="capitalize">
+        <tr className="capitalize text-center">
           <th scope="col" className="px-6 py-4 whitespace-nowrap">
             usernames
-          </th>
-          <th scope="col" className="px-6 py-4 whitespace-nowrap">
-            user ID
           </th>
           <th scope="col" className="px-6 py-4 whitespace-nowrap">
             <div className="flex flex-col gap-1">

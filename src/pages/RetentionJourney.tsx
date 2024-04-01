@@ -2,6 +2,7 @@ import { useState } from "react";
 import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
 import UserProductProgress from "../components/UserProductProgress";
+import ReactPaginate from "react-paginate";
 
 const data = [
   {
@@ -27,6 +28,19 @@ const data = [
 function RetentionJourney() {
   const [step, setStep] = useState(1);
   const [passedData, setPassedData] = useState(null);
+
+  //pagination logic
+  const itemsPerPage = 20;
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageChange = ({ selected }: { selected: any }) => {
+    setCurrentPage(selected);
+  };
+  const displayedData = data.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
   return (
     <DashboardLayout>
       {
@@ -65,7 +79,7 @@ function RetentionJourney() {
                     </tr>
                   </thead>
                   <tbody className="bg-white">
-                    {data.map((item: any, index) => (
+                    {displayedData.map((item: any, index) => (
                       <tr
                         key={index}
                         onClick={() => {
@@ -106,6 +120,19 @@ function RetentionJourney() {
                   </tbody>
                 </table>
               </div>
+
+              <ReactPaginate
+                previousLabel={""}
+                nextLabel={""}
+                breakLabel={"..."}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={2}
+                onPageChange={handlePageChange}
+                pageClassName="block border hover:bg-primary/80 hover:text-white border-primary rounded-lg p-1.5 cursor-pointer"
+                containerClassName="flex justify-center items-center font-medium mt-12 gap-5"
+                activeClassName="bg-primary border border-primary text-white"
+              />
             </div>
           ),
           2: <UserProductProgress setStep={setStep} data={passedData} />,

@@ -4,6 +4,7 @@ import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
 import Card from "../components/UserCard"; // Ensure the correct path is provided
 import { ChevronDownIcon } from "../assets/icons";
+import ReactPaginate from "react-paginate";
 
 type ActiveUserDto = {
   name: string;
@@ -44,6 +45,19 @@ function ActiveUsers() {
     fetchActiveUsers();
   }, []);
 
+  //pagination logic
+  const itemsPerPage = 21;
+  const [currentPage, setCurrentPage] = useState(0);
+  const pageCount = Math.ceil(activeUsers.length / itemsPerPage);
+
+  const handlePageChange = ({ selected }: { selected: any }) => {
+    setCurrentPage(selected);
+  };
+  const displayedData = activeUsers.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
   return (
     <DashboardLayout>
       <DashboardNav
@@ -72,10 +86,23 @@ function ActiveUsers() {
       </div>
 
       <div className="flex  items-stretch flex-wrap gap-4 md:gap-y-8">
-        {activeUsers.map((data, index) => (
+        {displayedData.map((data, index) => (
           <Card key={index} {...data} />
         ))}
       </div>
+
+      <ReactPaginate
+        previousLabel={""}
+        nextLabel={""}
+        breakLabel={"..."}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageChange}
+        pageClassName="block border hover:bg-primary/80 hover:text-white border-primary rounded-lg p-1.5 cursor-pointer"
+        containerClassName="flex justify-center items-center font-medium mt-12 gap-5"
+        activeClassName="bg-primary border border-primary text-white"
+      />
     </DashboardLayout>
   );
 }

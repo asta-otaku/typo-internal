@@ -274,7 +274,9 @@ function Modal({
       </div>
       <div className="w-full flex justify-between mt-4">
         <div>
-          <h2 className="font-semibold text-black">{name}</h2>
+          <h2 className="font-semibold text-black max-w-[150px] overflow-hidden truncate">
+            {name}
+          </h2>
           <h6 className="font-medium text-black my-2 text-xs">{team}</h6>
           <p className="text-xs">Last Activity: {lastActivityTime} hours ago</p>
         </div>

@@ -19,7 +19,7 @@ function UserRankingLayout({
         description="Select the category to view the leaderboards."
       />
       <div className="mt-6 px-2 overflow-x-auto flex flex-col lg:flex-row items-center md:items-start justify-between gap-8 w-full">
-        <div className="max-w-[340px] w-full flex gap-4 justify-between items-center">
+        <div className="flex gap-4 justify-between items-center">
           <div className="flex items-center justify-center gap-2 bg-offwhite border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
             <select
               onChange={(e: any) => setFilter(e.target.value)}
