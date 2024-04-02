@@ -246,7 +246,7 @@ function Modal({
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="flex flex-col shadow-sm max-w-md w-full text-fadedBlack text-xs font-light bg-offwhite relative rounded-3xl p-5"
+      className="flex flex-col shadow-sm max-w-md w-full max-h-[80vh] overflow-y-auto text-fadedBlack text-xs font-light bg-offwhite relative rounded-3xl p-5"
     >
       <span onClick={() => setModal(null)} className="absolute top-5 right-5">
         <img src={close} alt="" />

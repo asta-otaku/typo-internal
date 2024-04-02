@@ -44,7 +44,7 @@ function GroupRanking() {
               >
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className="text-primary bg-primary/10 px-2 py-1 text-center rounded-full">
-                    {index + 1}
+                    {currentPage * itemsPerPage + index + 1}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
