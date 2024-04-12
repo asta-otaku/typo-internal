@@ -63,6 +63,19 @@ function DashboardLayout({ children }: any) {
               </li>
               <li>
                 <Link
+                  to="/daily-reports"
+                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
+                    location.pathname.startsWith("/daily-reports")
+                      ? "bg-primary text-white"
+                      : "text-fadedBlack"
+                  }`}
+                >
+                  <DocumentTextIcon width={22} />
+                  <span>Daily Reports</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/retention"
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/retention"
@@ -77,37 +90,6 @@ function DashboardLayout({ children }: any) {
                     width={22}
                   />
                   <span>Retention</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/daily-reports"
-                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
-                    location.pathname.startsWith("/daily-reports")
-                      ? "bg-primary text-white"
-                      : "text-fadedBlack"
-                  }`}
-                >
-                  <DocumentTextIcon width={22} />
-                  <span>Daily Reports</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/analytics"
-                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
-                    location.pathname === "/analytics"
-                      ? "bg-primary text-white"
-                      : "text-fadedBlack"
-                  }`}
-                >
-                  <ChartIcon
-                    color={
-                      location.pathname === "/analytics" ? "white" : "#999"
-                    }
-                    width={22}
-                  />
-                  <span>Analytics</span>
                 </Link>
               </li>
               <li>
@@ -143,22 +125,6 @@ function DashboardLayout({ children }: any) {
               </li>
               <li>
                 <Link
-                  to="/waitlist"
-                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
-                    location.pathname === "/waitlist"
-                      ? "bg-primary text-white"
-                      : "text-fadedBlack"
-                  }`}
-                >
-                  <WaitListIcon
-                    color={location.pathname === "/waitlist" ? "white" : "grey"}
-                    width={22}
-                  />
-                  <span>Waitlist</span>
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/retention-journey"
                   className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
                     location.pathname === "/retention-journey"
@@ -177,6 +143,41 @@ function DashboardLayout({ children }: any) {
                   <span>Retention Journey</span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/analytics"
+                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
+                    location.pathname === "/analytics"
+                      ? "bg-primary text-white"
+                      : "text-fadedBlack"
+                  }`}
+                >
+                  <ChartIcon
+                    color={
+                      location.pathname === "/analytics" ? "white" : "#999"
+                    }
+                    width={22}
+                  />
+                  <span>Analytics</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/waitlist"
+                  className={`flex gap-3 items-center w-full py-3 pl-2 my-1 hover:bg-blue-400 rounded-md no-underline ${
+                    location.pathname === "/waitlist"
+                      ? "bg-primary text-white"
+                      : "text-fadedBlack"
+                  }`}
+                >
+                  <WaitListIcon
+                    color={location.pathname === "/waitlist" ? "white" : "grey"}
+                    width={22}
+                  />
+                  <span>Waitlist</span>
+                </Link>
+              </li>
+
               <li>
                 <Link
                   to="/settings"
