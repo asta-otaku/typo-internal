@@ -59,13 +59,15 @@ function TableHeader({
           </th>
         </tr>
       ) : (
-        <tr className="capitalize">
-          {Object.keys(tableData[0]).map((key) => (
-            <th key={key} scope="col" className="px-6 py-4 whitespace-nowrap">
-              {key.replace("_", " ").replace("_", " ")}
-            </th>
-          ))}
-        </tr>
+        tableData.length > 0 && Array.isArray(tableData) && (
+          <tr className="capitalize">
+            {Object.keys(tableData[0]).map((key) => (
+              <th key={key} scope="col" className="px-6 py-4 whitespace-nowrap">
+                {key.replace("_", " ").replace("_", " ")}
+              </th>
+            ))}
+          </tr>
+        )
       )}
     </thead>
   );

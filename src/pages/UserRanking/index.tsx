@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import UserRankingLayout from "../../layout/UserRankingLayout";
 import ReactPaginate from "react-paginate";
+import { apiUrl } from "../../config";
+import useStore from "../../store";
+import TableModal from "../../components/DailyReport/TableModal";
 
 type UserRanking = {
   name: string;
@@ -23,15 +26,12 @@ function UserRanking() {
   useEffect(() => {
     const fetchUserRankingData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5269/api/analytics/userRanking",
-          {
-            headers: {
-              accept: "application/json",
-              "x-user-id": "dc60dc1e-182b-4314-b2e7-f9eff78b7450",
-            },
-          }
-        );
+        const response = await axios.get(`${apiUrl}/analytics/userRanking`, {
+          headers: {
+            accept: "application/json",
+            "x-user-id": "dc60dc1e-182b-4314-b2e7-f9eff78b7450",
+          },
+        });
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user ranking data:", error);
@@ -73,6 +73,8 @@ function UserRanking() {
     (currentPage + 1) * itemsPerPage
   );
 
+  const { setModal } = useStore();
+
   return (
     <UserRankingLayout setFilter={setFilter}>
       <div className="flex flex-col gap-2 overflow-x-auto">
@@ -96,6 +98,7 @@ function UserRanking() {
           <tbody className="bg-white font-medium">
             {displayedData.map((user, index) => (
               <tr
+                onClick={() => setModal(<TableModal user={user.name} />)}
                 key={index + 1}
                 className="border-gray-100 border-0 border-b border-solid cursor-pointer hover:bg-primary/10"
               >

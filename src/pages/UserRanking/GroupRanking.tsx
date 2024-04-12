@@ -2,6 +2,8 @@ import { useState } from "react";
 import UserRankingLayout from "../../layout/UserRankingLayout";
 import { GROUPUSERRANKINGDATA as data } from "../../store/data";
 import ReactPaginate from "react-paginate";
+import useStore from "../../store";
+import TableModal from "../../components/DailyReport/TableModal";
 
 function GroupRanking() {
   const [filter, setFilter] = useState("login");
@@ -18,6 +20,8 @@ function GroupRanking() {
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
+
+  const { setModal } = useStore();
 
   return (
     <UserRankingLayout setFilter={setFilter}>
@@ -39,6 +43,7 @@ function GroupRanking() {
           <tbody className="bg-white font-medium">
             {displayedData.map((user: any, index) => (
               <tr
+                onClick={() => setModal(<TableModal user={user.name} />)}
                 key={index + 1}
                 className="border-gray-100 border-0 border-b border-solid cursor-pointer hover:bg-primary/10"
               >

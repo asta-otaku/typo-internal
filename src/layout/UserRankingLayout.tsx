@@ -26,7 +26,7 @@ function UserRankingLayout({
               className="outline-none text-primary text-xs md:text-sm font-semibold appearance-none border-none bg-transparent"
             >
               <option value={"typoScore"}>Typo Score</option>
-              <option value={"loginCount"}>Log-In</option>
+              <option value={"loginCount"}>Active Days</option>
               <option value={"screenTime"}>Screen-Time</option>
               <option value={"bubblesSent"}>Bubbles Sent</option>
               <option value={"commentsSent"}>Comments Sent</option>
@@ -43,7 +43,9 @@ function UserRankingLayout({
               <option value={"7-days"}>Last 7 Days</option>
               <option value={"30-days"}>Last 30 Days</option>
               <option value={"60-days"}>Last 60 Days</option>
-              <option value={"80-days"}>Last 80 Days</option>
+              <option value={"90-days"}>Last 90 Days</option>
+              <option value={"180-days"}>Last 180 Days</option>
+            <option value={"Custom"} >Custom Date Range</option>
             </select>
             <ChevronDownIcon width={12} />
           </div>

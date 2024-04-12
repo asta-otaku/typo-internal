@@ -98,7 +98,11 @@ export default function Card({
 
       <div className="w-full flex justify-between mt-4">
         <div>
-          <h2 className="font-semibold text-black">{name}</h2>
+        <h2 className="font-semibold text-black max-w-[150px] overflow-hidden truncate">
+
+{name}
+
+</h2>
           <h6 className="font-medium text-black my-2 text-xs">{team}</h6>
           <p className="text-xs">Last Activity: {lastActivityTime} hours ago</p>
         </div>
@@ -253,7 +257,7 @@ function Modal({
       </span>
       <h6 className="text-sm text-black font-medium">Activity Log</h6>
       <div className="mt-4 mb-6 w-full py-3 flex justify-between">
-        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-fit">
+        <div className="flex items-center justify-center gap-2 bg-white border border-solid border-[#DBDBDB] rounded-2xl p-2 w-f">
           <select className="outline-none text-fadedBlack text-xs md:text-sm font-semibold appearance-none border-none bg-transparent">
             <option value={"user"}>User Type</option>
           </select>
@@ -326,7 +330,7 @@ function Modal({
             (a: ActivityDetails, b: ActivityDetails) =>
               new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
           )
-          .slice(0, 10)
+          .slice(0, 100)
           .map(
             ({ activity, device, timestamp }: ActivityDetails, i: number) => {
               const activityColor = getActivityColor(activity);

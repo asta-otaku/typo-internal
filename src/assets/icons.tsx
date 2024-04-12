@@ -26,6 +26,92 @@ export function ArrowLeftIcon(props: SVGAttributes<SVGElement>) {
   );
 }
 
+export function CalendarIcon(props: SVGAttributes<SVGElement>) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M2.06177 6.2695H13.9444"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.9614 8.87312H10.9676"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.00305 8.87312H8.00923"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.03857 8.87312H5.04475"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.9614 11.4641H10.9676"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.00305 11.4641H8.00923"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.03857 11.4641H5.04475"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.6958 1.33333V3.52718"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.3103 1.33333V3.52718"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M10.8255 2.38612H5.18064C3.22285 2.38612 2 3.47675 2 5.48147V11.5146C2 13.5508 3.22285 14.6667 5.18064 14.6667H10.8193C12.7833 14.6667 14 13.5697 14 11.565V5.48147C14.0062 3.47675 12.7895 2.38612 10.8255 2.38612Z"
+        stroke="#6D6D6D"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ChartIcon(props: SVGAttributes<SVGElement>) {
   return (
     <svg

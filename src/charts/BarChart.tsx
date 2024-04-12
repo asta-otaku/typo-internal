@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   BarElement,
@@ -7,53 +9,85 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { apiUrl } from '../config';
+
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-function BarChart() {
-  const data = {
-    labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    datasets: [
-      {
-        label: "Comments",
-        data: [
-          4600, 3100, 2200, 3900, 3050, 4800, 3800, 3400, 3950, 4800, 4800,
-          3400,
-        ],
-        backgroundColor: "#f1f5f9",
-        borderColor: "#d2d8e5",
-        borderWidth: 1,
-        borderRadius: 100,
-        borderSkipped: false,
-      },
-      {
-        label: "Bubbles",
-        data: [
-          4800, 2500, 3500, 4800, 3200, 3900, 3300, 2500, 4800, 3900, 3900,
-          2200,
-        ],
+interface MonthlySummaryDto {
+  month: string;
+  bubblesCount: number;
+  commentsCount: number;
+}
 
-        backgroundColor: "#0019FF",
-        borderColor: "#0019FF",
-        borderWidth: 1,
-        borderRadius: 100,
-        borderSkipped: false,
-      },
-    ],
-  };
+interface ChartData {
+  labels: string[];
+  datasets: Array<{
+    label: string;
+    data: number[];
+    backgroundColor: string;
+    borderColor: string;
+    borderWidth: number;
+    borderRadius: number;
+    borderSkipped: boolean;
+  }>;
+}
+
+
+function BarChart({ year }: { year: string }) {
+
+  const [chartData, setChartData] = useState<ChartData | null>(null);
+
+  useEffect(() => {
+    const fetchChartData = async () => {
+      try {
+        // const year = new Date().getFullYear(); // or set a specific year
+        const response = await axios.get<MonthlySummaryDto[]>(`${apiUrl}/analytics/monthlySummary/${year}`,
+        {
+          headers: {
+            accept: "*/*",
+            "x-user-id": "861f4c04-e718-43f4-9c4f-656910d71cd9",
+          },
+        }
+        );
+        const data = response.data;
+
+        const labels = data.map(d => d.month);
+        const bubblesData = data.map(d => d.bubblesCount);
+        const commentsData = data.map(d => d.commentsCount);
+
+        const newChartData: ChartData = {
+          labels,
+          datasets: [
+            {
+              label: "Comments",
+              data: commentsData,
+              backgroundColor: "#f1f5f9",
+              borderColor: "#d2d8e5",
+              borderWidth: 1,
+              borderRadius: 100,
+              borderSkipped: false,
+            },
+            {
+              label: "Bubbles",
+              data: bubblesData,
+              backgroundColor: "#0019FF",
+              borderColor: "#0019FF",
+              borderWidth: 1,
+              borderRadius: 100,
+              borderSkipped: false,
+            },
+          ],
+        };
+
+        setChartData(newChartData);
+      } catch (error) {
+        console.error('Error fetching chart data:', error);
+      }
+    };
+
+    fetchChartData();
+  }, [year]);
 
   const options = {
     responsive: true,
@@ -88,7 +122,7 @@ function BarChart() {
 
   return (
     <div>
-      <Bar data={data} options={options} />
+      {chartData && <Bar data={chartData} options={options} />}
     </div>
   );
 }

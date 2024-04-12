@@ -1,18 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { Chart as ChartJs, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import axios from "axios";
+import { apiUrl } from "../config";
+
+interface DoughnutChartProps {
+  setBubblePercentage: (percentage: string) => void;
+  setCommentPercentage: (percentage: string) => void;
+}
+
 
 ChartJs.register(ArcElement, Tooltip, Legend);
 
-function DoughnutChart() {
+
+const DoughnutChart: FC<DoughnutChartProps> = ({ setBubblePercentage, setCommentPercentage }) => {
   const [totalBubbles, setTotalBubbles] = useState(0);
   const [totalComments, setTotalComments] = useState(0);
 
   useEffect(() => {
     const fetchTotalBubbles = async () => {
       try {
-        const response = await axios.get('http://localhost:5269/api/analytics/artifacts/count', {
+        const response = await axios.get(`${apiUrl}/analytics/artifacts/count`, {
           headers: {
             'accept': '*/*',
             'x-user-id': '861f4c04-e718-43f4-9c4f-656910d71cd9',
@@ -26,13 +34,13 @@ function DoughnutChart() {
 
     const fetchTotalComments = async () => {
       try {
-        const response = await axios.get('http://localhost:5269/api/analytics/comments/count', {
+        const response = await axios.get(`${apiUrl}/analytics/comments/count`, {
           headers: {
             'accept': '*/*',
             'x-user-id': '861f4c04-e718-43f4-9c4f-656910d71cd9',
           },
         });
-        setTotalComments(response.data.totalCommentsSent);
+        setTotalComments(response.data.totalCommentsCount);
       } catch (error) {
         console.error('Error fetching total comments:', error);
       }
@@ -40,10 +48,16 @@ function DoughnutChart() {
 
     fetchTotalBubbles();
     fetchTotalComments();
-  }, []);
+    setBubblePercentage(bubblePercentage);
+    setCommentPercentage(commentPercentage);
+  }, [totalBubbles, totalComments, setBubblePercentage, setCommentPercentage]);
+
+  const total = totalBubbles + totalComments;
+  const bubblePercentage = ((totalBubbles / total) * 100).toFixed(2);
+  const commentPercentage = ((totalComments / total) * 100).toFixed(2);
 
   const data = {
-    labels: ["Bubbles", "Comments"],
+    labels: [`Bubbles ${bubblePercentage}%`, `Comments ${commentPercentage}%`],
     datasets: [
       {
         data: [totalBubbles, totalComments],

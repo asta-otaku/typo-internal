@@ -1,0 +1,25 @@
+<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i_352_4554)">
+<rect x="1" y="1" width="40" height="40" rx="8" fill="#0019FF"/>
+<rect x="0.75" y="0.75" width="40.5" height="40.5" rx="8.25" stroke="#DEDEDE" stroke-width="0.5"/>
+<path d="M15.0894 23.999C14.711 23.1484 14.5 22.2021 14.5 21.2049C14.5 17.5014 17.4102 14.499 21 14.499C24.5899 14.499 27.5 17.5014 27.5 21.2049C27.5 22.2021 27.289 23.1484 26.9106 23.999" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M21 10.999V11.999" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31 20.999H30" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 20.999H11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28.0704 13.9277L27.3633 14.6348" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.6368 14.6358L13.9297 13.9287" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M23.517 28.3055C24.5274 27.9786 24.9326 27.0538 25.0466 26.1236C25.0806 25.8458 24.852 25.6152 24.572 25.6152L17.4769 25.6154C17.1873 25.6155 16.9547 25.8612 16.9893 26.1488C17.1009 27.0771 17.3827 27.7553 18.4535 28.3055M23.517 28.3055C23.517 28.3055 18.6297 28.3055 18.4535 28.3055M23.517 28.3055C23.3955 30.2505 22.8338 31.0207 21.0068 30.9991C19.0526 31.0352 18.603 30.0831 18.4535 28.3055" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_i_352_4554" x="0.5" y="0.5" width="41" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="7"/>
+<feGaussianBlur stdDeviation="7.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_352_4554"/>
+</filter>
+</defs>
+</svg>

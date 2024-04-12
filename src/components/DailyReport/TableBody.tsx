@@ -17,7 +17,9 @@ function TableBody({ tableData }: { tableData: any[] }) {
   return (
     <tbody className="bg-white font-medium">
       {tableData
+
         .map(({ userId, ...rest }) => rest)
+
         .map((data: { [key: string]: string }, index: number) => (
           <tr
             key={index}

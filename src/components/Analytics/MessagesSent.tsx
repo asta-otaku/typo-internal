@@ -26,7 +26,7 @@ function MessagesSent() {
               1400
             </h2>
           </div>
-          <AreaChart />
+          <AreaChart data={[65, 59, 80, 81]} />
         </div>
 
         <div className="flex flex-col md:flex-row justify-between w-full gap-4">
@@ -53,7 +53,7 @@ function MessagesSent() {
                 </p>
               </div>
             </div>
-            <AreaChart />
+            <AreaChart data={[65, 59, 80, 81]} />
           </div>
 
           <div className="rounded-2xl bg-offwhite w-full md:w-[48%]">
@@ -79,7 +79,7 @@ function MessagesSent() {
                 </p>
               </div>
             </div>
-            <AreaChart />
+            <AreaChart data={[65, 59, 80, 81]} />
           </div>
         </div>
       </div>

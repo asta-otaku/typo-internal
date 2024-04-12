@@ -3,6 +3,8 @@ import DashboardNav from "../components/DashboardNav";
 import DashboardLayout from "../layout/DashboardLayout";
 import { WAITLISTDATA as tableData } from "../store/data";
 import ReactPaginate from "react-paginate";
+import useStore from "../store";
+import TableModal from "../components/DailyReport/TableModal";
 
 function Waitlist() {
   //pagination logic
@@ -17,6 +19,9 @@ function Waitlist() {
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
+
+  const { setModal } = useStore();
+
   return (
     <DashboardLayout>
       <DashboardNav
@@ -40,7 +45,11 @@ function Waitlist() {
           </thead>
           <tbody className="bg-white">
             {displayedData.map((data: { [key: string]: string }, index) => (
-              <tr key={index} className="cursor-pointer hover:bg-primary/10">
+              <tr
+                onClick={() => setModal(<TableModal user={data.name} />)}
+                key={index}
+                className="cursor-pointer hover:bg-primary/10"
+              >
                 {Object.keys(data).map((key) => (
                   <td key={key} className={`px-6 py-4 whitespace-nowrap`}>
                     {data[key]}
@@ -69,3 +78,4 @@ function Waitlist() {
 }
 
 export default Waitlist;
+//new
